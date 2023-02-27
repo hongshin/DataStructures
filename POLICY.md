@@ -18,7 +18,7 @@ Yet, to promote active participation, students are allowed to use Korean for que
 Use the class channel in Slack. Make questions publicly, so that I can share the question and my answer easily with all class members. For a case where privacy matters, you can send a direct message (DM) to transfer privacy-sensitive information (e.g., a proof for an approved absence). Other than this case, the instructor and the TAs will not respond to any personal contacts (e.g., Slack DM, e-mail).
 
 **(3) Counseling session**
-Students can request a counseling session to the instructor to ask for academic advice. To make an appointment with the instructor, submit an answer to the following pre-interview form: https://forms.gle/KbREJ1b5S13nD51V7. When a new submission is received, the instructor will send a reply to arrange a personal counseling session. Note that the instructor does not arrange any personal meeting at an exam season.
+Students can request a counseling session to the instructor to ask for academic advice. To make an appointment with the instructor, submit an answer to the following pre-interview form: https://forms.gle/AHtwGrowgTPhhq5dA. When a new submission is received, the instructor will send a reply to arrange a personal counseling session. Note that the instructor does not arrange any personal meeting at an exam season.
 
 **(4) Improper solicitation**
 All kinds of improper solicitations are strictly forbidden as declared in the Improper Solicitation and Graft Act (aka. Kim Young-ran Act). For example:
