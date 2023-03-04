@@ -14,11 +14,13 @@
 * Data structures and Algorithms in C++, 2nd edition  by Michael T. Goodrich et al.
     - you can access the full-text at O’Reilly Higher Education via Handong Library
 
-**Programming practice**
-- To be announced
-
 **Lecture Notes**
- - To be announced
+* Array List (Mar 3) [[pdf](lecturenote/arraylist.pdf)]
+
+
+**Programming practice**
+- List [[repo](https://github.com/hongshin/DataStructures/tree/list)]
+
 
 **Homework**
  - To be announced
