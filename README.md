@@ -20,6 +20,6 @@ The TA will arrange the review meeting, and you must pass the review by the end 
 
 1. Function `int strlist_remove (strlist * l, int i, char **s)`
     The expected behavior of `int strlist_remove (strlist * l, int i, char **s)` is as follows:
-    > Remove the element at the (`i`+1)-th index from `l` while assinging the stored value to the location pointed by `s`.
+    > Remove the element at index `i` from `l` while assinging the stored value to the location pointed by `s`.
     
     Write a test case, and then a function definition of `int strlist_remove (strlist * l, int i, char **s)`.
