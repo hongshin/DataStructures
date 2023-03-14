@@ -2,8 +2,8 @@
 
 ### Class Attributes ###
 * Meeting Time & Location
-  - Lecture: 10:00 AM @ NTH 311
-  - Lab: 5:30 PM @ NTH 412
+  - Lecture: 10:00 AM Tue & Fri@ NTH 311
+  - Lab: 5:30 PM Tue @ NTH 412
 * Instructor: Shin Hong https://hongshin.github.io :e-mail: hongshin@handong.edu :door: OH 313
 * Teaching Assistants: To be announced
 * Class Policies: [POLICY.md](POLICY.md)
@@ -15,6 +15,10 @@
     - you can access the full-text at O’Reilly Higher Education via Handong Library
 
 **Lecture Notes**
+* Lab 2. Linked List [[link](https://github.com/hongshin/DataStructures/tree/lab2)]
+* Linked List (Mar 14) [[pdf](lecturenote/linkedlist.pdf)]
+* Array-based Priority List (Mar 10) [[src](https://github.com/hongshin/DataStructures/tree/list)]
+* Lab 1. Array List (Mar 7) [[link](https://github.com/hongshin/DataStructures/tree/lab1)]
 * Array List (Mar 3) [[pdf](lecturenote/arraylist.pdf)]
 
 
