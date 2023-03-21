@@ -18,6 +18,11 @@ void glist_free (glist * l)
 	}
 }
 
+int glist_search (glist * l, int (* elem_cond)(void *)) 
+{
+	// TODO
+}
+
 int glist_add_first (glist * l, void * s) 
 {
 	glist_node * n = (glist_node *) malloc(sizeof(glist_node)) ;
@@ -26,6 +31,17 @@ int glist_add_first (glist * l, void * s)
 	n->next = l->head ;	
 	l->head = n ;
 }
+
+int glist_add_last (glist * l, void * s)
+{
+	// TODO
+}
+
+int glist_remove (glist * l, int i, void * s)
+{
+	// TODO
+}
+
 
 int glist_remove_first (glist * l, void * s) 
 {
