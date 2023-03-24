@@ -1,4 +1,4 @@
-# Programming Assignment 1. SLIST: Sorted List as Generic Doubly Lined List
+# Programming Assignment 1. SLIST: Sorted List with Generic Doubly Linked List
 
 ### Attributes
 * Type: Individual work (you cannot collaborate with other students)
