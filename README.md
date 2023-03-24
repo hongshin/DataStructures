@@ -1,4 +1,4 @@
-# Programming Assignment 1. GDLIST: Generic Sorted List Implemented as Doubly Lined List
+# Programming Assignment 1. SLIST: Sorted List as Generic Doubly Lined List
 
 ### Attributes
 * Type: Individual work (you cannot collaborate with other students)
@@ -10,9 +10,9 @@
 This assignment asks you to implement a doubly linked list that can contain data elemetns of an arbitrary type (generic list) in
 certain order (sorted list).
 
-Read the header file `gdlist.h` and the test code `main.c` carefully to understsand the expected behaviors of the `gdlist` functions. And then write down the bodies of the functions in `gdlist.c`. Note that you are not allowed to modify `gdlist.h` and `main.c`.
+Read the header file `slist.h` and the test code `main.c` carefully to understsand the expected behaviors of the `slist` functions. And then write down the bodies of the functions in `slist.c`. Note that you are not allowed to modify `slist.h` and `main.c`.
 
-One important requirement is that you must write `gdlist_merge` such that its time complexity must be a Big-O of the total number of elements.
+One important requirement is that you must write `slist_merge` such that its time complexity must be a Big-O of the total number of elements.
 
 Submit `gdlist.c` to HDLMS by 9 PM, 31 Mar (Fri). No late submission will be accepted.
 

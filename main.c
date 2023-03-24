@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "gentry.h"
-#include "gdlist.h"
+#include "slist.h"
 
 
 void gentry_print (void * p)
@@ -37,83 +37,83 @@ int gentry_cond (void * p)
 	return 0 ;
 }
 
-int test_gdlist_add ()
+int test_slist_add ()
 {
-	gdlist * l ;
+	slist * l ;
 
-	l = gdlist_alloc(sizeof(gentry), gentry_compare) ;
+	l = slist_alloc(sizeof(gentry), gentry_compare) ;
 
 	gentry e1 = {"Rob", 750}, e2 = {"Jack", 510}, e3 = {"Mike", 1105}, e4 = {"Paul", 720}, e5 = {"Justin", 750}, e6 = {"Rob", 200} ;
 
-	gdlist_add(l, &e1) ;
-	gdlist_add(l, &e2) ;
-	gdlist_add(l, &e3) ;
-	gdlist_add(l, &e4) ;
-	gdlist_add(l, &e5) ;
-	gdlist_add(l, &e6) ;
+	slist_add(l, &e1) ;
+	slist_add(l, &e2) ;
+	slist_add(l, &e3) ;
+	slist_add(l, &e4) ;
+	slist_add(l, &e5) ;
+	slist_add(l, &e6) ;
 
-	gdlist_print(l, gentry_print) ;
+	slist_print(l, gentry_print) ;
 
-	gdlist_free(l) ;
+	slist_free(l) ;
 	return 0 ;
 }
 
-int test_gdlist_search_remove ()
+int test_slist_search_remove ()
 {
-	gdlist * l ;
+	slist * l ;
 
-	l = gdlist_alloc(sizeof(gentry), gentry_compare) ;
+	l = slist_alloc(sizeof(gentry), gentry_compare) ;
 
 	gentry e1 = {"Rob", 750}, e2 = {"Jack", 510}, e3 = {"Mike", 1105}, e4 = {"Paul", 720}, e5 = {"Justin", 750}, e6 = {"Rob", 200} ;
 
-	gdlist_add(l, &e1) ;
-	gdlist_add(l, &e2) ;
-	gdlist_add(l, &e3) ;
-	gdlist_add(l, &e4) ;
-	gdlist_add(l, &e5) ;
-	gdlist_add(l, &e6) ;
+	slist_add(l, &e1) ;
+	slist_add(l, &e2) ;
+	slist_add(l, &e3) ;
+	slist_add(l, &e4) ;
+	slist_add(l, &e5) ;
+	slist_add(l, &e6) ;
 
 	int index ;
-	index = gdlist_search(l, gentry_cond) ;
+	index = slist_search(l, gentry_cond) ;
 
 	gentry e ;
-	gdlist_remove(l, index, &e) ;
-	gdlist_print(l, gentry_print) ;
+	slist_remove(l, index, &e) ;
+	slist_print(l, gentry_print) ;
 
-	index = gdlist_search(l, gentry_cond) ;
-	gdlist_remove(l, index, &e) ;
-	gdlist_print(l, gentry_print) ;
+	index = slist_search(l, gentry_cond) ;
+	slist_remove(l, index, &e) ;
+	slist_print(l, gentry_print) ;
 
-	gdlist_free(l) ;
+	slist_free(l) ;
 	return 0 ;
 }
 
 
-int test_gdlist_merge ()
+int test_slist_merge ()
 {
-	gdlist * l1, *l2, *l_merged ;
+	slist * l1, *l2, *l_merged ;
 
-	l1 = gdlist_alloc(sizeof(gentry), gentry_compare) ;
-	l2 = gdlist_alloc(sizeof(gentry), gentry_compare) ;
+	l1 = slist_alloc(sizeof(gentry), gentry_compare) ;
+	l2 = slist_alloc(sizeof(gentry), gentry_compare) ;
 
 
 	gentry e1 = {"Rob", 750}, e2 = {"Jack", 510}, e3 = {"Mike", 1105}, e4 = {"Paul", 720}, e5 = {"Justin", 750}, e6 = {"Rob", 200} ;
 
-	gdlist_add(l1, &e1) ;
-	gdlist_add(l1, &e2) ;
-	gdlist_add(l1, &e3) ;
+	slist_add(l1, &e1) ;
+	slist_add(l1, &e2) ;
+	slist_add(l1, &e3) ;
 
-	gdlist_add(l2, &e4) ;
-	gdlist_add(l2, &e5) ;
-	gdlist_add(l2, &e6) ;
+	slist_add(l2, &e4) ;
+	slist_add(l2, &e5) ;
+	slist_add(l2, &e6) ;
 
-	l_merged = gdlist_merge(l1, l2) ;
+	l_merged = slist_merge(l1, l2) ;
 
-	gdlist_print(l_merged, gentry_print) ;
+	slist_print(l_merged, gentry_print) ;
 
-	gdlist_free(l1) ;
-	gdlist_free(l2) ;
-	gdlist_free(l_merged) ;
+	slist_free(l1) ;
+	slist_free(l2) ;
+	slist_free(l_merged) ;
 
 	return 0 ;
 }
@@ -121,8 +121,8 @@ int test_gdlist_merge ()
 
 int main ()
 {
-	test_gdlist_add() ;
-	test_gdlist_search_remove() ;
-	test_gdlist_merge() ;
+	test_slist_add() ;
+	test_slist_search_remove() ;
+	test_slist_merge() ;
 	return 0 ;
 }
