@@ -14,6 +14,6 @@ Read the header file `slist.h` and the test code `main.c` carefully to understsa
 
 One important requirement is that you must write `slist_merge` such that its time complexity must be a Big-O of the total number of elements.
 
-Submit `gdlist.c` to HDLMS by 9 PM, 31 Mar (Fri). No late submission will be accepted.
+Submit `slist.c` to HDLMS by 9 PM, 31 Mar (Fri). No late submission will be accepted.
 
 Your results will be evaluated by test cases (i.e., other versions of `main.c`), and also you will get interview exam with the resulting code.
