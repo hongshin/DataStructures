@@ -15,6 +15,7 @@
     - you can access the full-text at O’Reilly Higher Education via Handong Library
 
 **Lecture Notes**
+* Asymptotic Complexity (Mar 24) [[pdf](lecturenote/asymptotic+complexity.pdf)]
 * Linked List: doubly linked list and circularly linked list (Mar 17) [[pdf](lecturenote/linkedlist.pdf)]
 * Lab 2. Linked List (Mar 14) [[link](https://github.com/hongshin/DataStructures/tree/lab2)]
 * Linked List: singly linked list (Mar 14) [[pdf](lecturenote/linkedlist.pdf)]
@@ -28,4 +29,4 @@
 
 
 **Homework**
- - To be announced
+ - PA1. Sorted List with Generic Doubly Linked List (due: 9PM, Mar 31) [[repo](https://github.com/hongshin/DataStructures/tree/pa1)]
