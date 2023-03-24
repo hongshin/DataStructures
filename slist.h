@@ -8,6 +8,7 @@ typedef struct {
 	slist_node head ;
 	slist_node tail ;
 	size_t elem_size ;
+        int (* elem_compare)(void * p1, void * p2) ;
 } slist ;
 
 
