@@ -15,7 +15,9 @@
     - you can access the full-text at O’Reilly Higher Education via Handong Library
 
 **Lecture Notes**
+* Lab 4. Algorithm Time Complexity Analysis (Mar 28)[[pdf](note/lab4.pdf)]
 * Asymptotic Complexity (Mar 24) [[pdf](note/asymptotic+complexity.pdf)]
+* Lab 3. Doubly Linked List (Mar 21) [[link](https://github.com/hongshin/DataStructures/tree/lab3)]
 * Linked List: doubly linked list and circularly linked list (Mar 17) [[pdf](note/linkedlist.pdf)]
 * Lab 2. Linked List (Mar 14) [[link](https://github.com/hongshin/DataStructures/tree/lab2)]
 * Linked List: singly linked list (Mar 14) [[pdf](note/linkedlist.pdf)]
