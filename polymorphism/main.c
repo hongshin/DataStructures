@@ -16,8 +16,8 @@ int main ()
 {
 	list * l ;
 
-	//l = llist_alloc(sizeof(gentry)) ;
-	l = alist_alloc(sizeof(gentry)) ;
+	l = llist_alloc(sizeof(gentry)) ;
+	//l = alist_alloc(sizeof(gentry)) ;
 
 	gentry e1 = {"Rob", 750}, e2 = {"Jack", 510}, e3 = {"Mike", 1105}, e4 = {"Paul", 720} ;
 

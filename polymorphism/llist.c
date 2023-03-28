@@ -45,6 +45,8 @@ int llist_add (list * l, void * s)
 	memcpy(n->elem, s, l->elem_size) ;
 	n->next = ll->head ;	
 	ll->head = n ;
+	ll->length++ ;
+	return 1 ;
 }
 
 int llist_remove (list * l, int i, void * s) 
@@ -81,6 +83,8 @@ int llist_remove (list * l, int i, void * s)
 
 	free(n->elem) ;
 	free(n) ;
+	ll->length-- ;
+
 	return 1 ;
 }
 

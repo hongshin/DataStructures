@@ -6,7 +6,7 @@ typedef struct _llist_node {
 
 typedef struct {
 	llist_node * head ;
-	size_t size ;
+	size_t length ;
 } llist ;
 
 list * llist_alloc (size_t s) ;
