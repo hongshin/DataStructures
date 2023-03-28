@@ -15,13 +15,13 @@
     - you can access the full-text at O’Reilly Higher Education via Handong Library
 
 **Lecture Notes**
-* Asymptotic Complexity (Mar 24) [[pdf](lecturenote/asymptotic+complexity.pdf)]
-* Linked List: doubly linked list and circularly linked list (Mar 17) [[pdf](lecturenote/linkedlist.pdf)]
+* Asymptotic Complexity (Mar 24) [[pdf](note/asymptotic+complexity.pdf)]
+* Linked List: doubly linked list and circularly linked list (Mar 17) [[pdf](note/linkedlist.pdf)]
 * Lab 2. Linked List (Mar 14) [[link](https://github.com/hongshin/DataStructures/tree/lab2)]
-* Linked List: singly linked list (Mar 14) [[pdf](lecturenote/linkedlist.pdf)]
+* Linked List: singly linked list (Mar 14) [[pdf](note/linkedlist.pdf)]
 * Array-based Priority List (Mar 10) [[src](https://github.com/hongshin/DataStructures/tree/list)]
 * Lab 1. Array List (Mar 7) [[link](https://github.com/hongshin/DataStructures/tree/lab1)]
-* Array List (Mar 3) [[pdf](lecturenote/arraylist.pdf)]
+* Array List (Mar 3) [[pdf](note/arraylist.pdf)]
 
 
 **Programming practice**
