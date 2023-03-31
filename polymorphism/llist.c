@@ -11,9 +11,9 @@ list * llist_alloc (size_t s)
 	l->elem_size = s ;
 
 	l->d = malloc(sizeof(llist)) ;
-	llist * ll = (llist *) l->d ;
-	ll = (llist *) malloc(sizeof(llist)) ;
+	llist * ll = (llist *) l->d ;	
 	ll->head = 0x0 ;
+	ll->length = 0 ;
 
 	l->free = llist_free ;
 	l->add = llist_add ;
