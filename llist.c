@@ -102,7 +102,14 @@ int llist_get (list * l, int index, void * s)
 
 int llist_contains (list * l, void * elem2, int (* equal)(void * p1, void * p2)) 
 {
-	//TODO
+	llist * ll = (llist *) l->d ;
+
+	llist_node * n ;
+	for (n = ll->head ; n != 0x0 ; n = n->next) {
+		if (equal(n->elem, elem2))
+			return 1 ;
+	}
+	return 0 ;
 }
 
 

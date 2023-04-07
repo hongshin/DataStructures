@@ -7,9 +7,8 @@ enum direction {
 	Up, 
 	Down, 
 	Right,
-	Left,
-	Done
-}
+	Left
+} ;
 
 typedef struct {
 	int x ;
@@ -25,12 +24,18 @@ int maze[16][16] ;
 
 int issame (void * p1, void * p2)
 {
-	//TODO
+	decision * d1 = (decision *) p1 ;
+	decision * d2 = (decision *) p2 ;
+
+	if (d1->x == d2->x && d1->y == d2->y)
+		return 1 ;
+	return 0 ;
 }
 
 void print_decision (void * p)
 {
-	//TODO
+	decision * d = (decision *) p ;
+	printf("(%d,%d) ", d->y, d->x) ;
 }
 
 
@@ -51,7 +56,7 @@ void find_path ()
 			return ;
 		}
 
-		if (d.dir == Done) {
+		if (d.dir == 4) {
 			continue ;
 		}
 		else {

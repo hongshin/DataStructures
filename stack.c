@@ -36,7 +36,7 @@ int stack_top (stack * s, void * dest)
 
 int stack_contains (stack * s, void * elem2, int (* equal)(void * p1, void * p2))
 {
-	//TODO
+	return s->list->contains(s->list, elem2, equal) ;
 }
 
 void stack_print (stack * s, void (* print_elem)(void * p))
