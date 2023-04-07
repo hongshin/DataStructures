@@ -15,6 +15,9 @@
     - you can access the full-text at O’Reilly Higher Education via Handong Library
 
 **Lecture Notes**
+* Queue (Apr 7)[[pdf](note/queue.pdf)]
+* Lab 5. Recursion with Stack (Mar 31)[[link](https://github.com/hongshin/DataStructures/tree/lab5)]
+* Stack (Mar 31)[[pdf](note/stack.pdf)]
 * Lab 4. Algorithm Time Complexity Analysis (Mar 28)[[pdf](note/lab4.pdf)]
 * Asymptotic Complexity (Mar 24) [[pdf](note/asymptotic+complexity.pdf)]
 * Lab 3. Doubly Linked List (Mar 21) [[link](https://github.com/hongshin/DataStructures/tree/lab3)]
@@ -27,8 +30,10 @@
 
 
 **Programming practice**
+- C++ intro. [[repo](https://github.com/hongshin/DataStructures/tree/cpp)]
 - List [[repo](https://github.com/hongshin/DataStructures/tree/list)]
 
-
 **Homework**
- - PA1. Sorted List with Generic Doubly Linked List (due: 9PM, Mar 31) [[repo](https://github.com/hongshin/DataStructures/tree/pa1)]
+ - PA 2. String Transformation (due: 9PM, Apr 14) [[repo](https://github.com/hongshin/DataStructures/tree/pa2)]
+ - PA 1. Sorted List with Generic Doubly Linked List (due: 9PM, Mar 31) [[repo](https://github.com/hongshin/DataStructures/tree/pa1)]
+ 
