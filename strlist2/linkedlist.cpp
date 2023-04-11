@@ -1,38 +1,35 @@
 #include <cstdlib>
 #include <iostream>
 #include <string.h>
-#include "strlist.h"
+#include "linkedlist.h"
 
-StrListNode::StrListNode () 
+template <typename T>
+ListNode<T>::ListNode () 
 {
 	elem = 0x0 ;
 	prev = 0x0 ;
 	next = 0x0 ;
 }
 
-
-StrListNode::StrListNode (const char * elem) 
+template <typename T>
+ListNode<T>::ListNode (T elem) 
 {
-	this->elem = strdup(elem) ;
+	this->elem = elem ;
+	//*(this->elem) = *elem ;
 }
 
-StrListNode::~StrListNode ()
+template <typename T>
+ListNode<T>::~ListNode ()
 {
-	delete this->elem ;
 }
 
-void StrListNode::print ()
+template <typename T>
+void ListNode<T>::print ()
 {
 	std::cout << "[" << this->elem << "]" ;
 }
 
-std::ostream& operator<<(std::ostream& out, const StrListNode& n) {
-	out << "[" << n.elem << "]" ;
-	return out ;
-}
-
-
-StrList::StrList() 
+LinkedList::LinkedList() 
 {
 	head.prev = 0x0 ; 
 	head.next = &(tail) ;
