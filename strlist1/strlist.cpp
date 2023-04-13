@@ -14,6 +14,8 @@ StrListNode::StrListNode ()
 StrListNode::StrListNode (const char * elem) 
 {
 	this->elem = strdup(elem) ;
+	prev = 0x0 ;
+	next = 0x0 ;
 }
 
 StrListNode::~StrListNode ()
@@ -122,9 +124,9 @@ void StrList::print ()
 {
 	StrListNode * i ;
 	for (i = head.next ; i != &tail ; i = i->next) {
-		std::cout << *i << " " ;
 		//i->print() ;
 		//std::cout << " " ;
+		std::cout << *i << " " ;
 	}
 	std::cout << std::endl ;
 }

@@ -38,6 +38,8 @@ class LinkedList {
 		int removeFirst (T * dst) ;
 		int removeLast (T * dst) ;
 
+		bool empty () ;
+
 		void print () ;
 } ;
 
@@ -105,6 +107,8 @@ int LinkedList<T>::addFirst (const T * s)
 	head.next->prev = n ;
 	head.next = n ;
 
+	length++ ;
+
 	return 1 ;
 }
 
@@ -118,6 +122,8 @@ int LinkedList<T>::addLast (const T * s)
 
 	tail.prev->next = n ;
 	tail.prev = n ;
+
+	length++ ;
 
 	return 1 ;
 }
@@ -137,6 +143,8 @@ int LinkedList<T>::removeFirst (T * s)
 
 	*s = n->elem ;
 	delete n ;
+
+	length-- ;
 
 	return 1 ;
 }
@@ -158,7 +166,15 @@ int LinkedList<T>::removeLast (T * s)
 
 	delete n ;
 
+	length-- ;
+
 	return 1 ;
+}
+
+template <class T>
+bool LinkedList<T>::empty ()
+{
+	return (length == 0) ;
 }
 
 template <class T>
@@ -166,7 +182,6 @@ void LinkedList<T>::print ()
 {
 	ListNode<T> * i ;
 	for (i = head.next ; i != &tail ; i = i->next) {
-		//std::cout << *i << " " ;
 		i->print() ;
 		std::cout << " " ;
 	}
