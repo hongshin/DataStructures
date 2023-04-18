@@ -15,6 +15,7 @@
     - you can access the full-text at O’Reilly Higher Education via Handong Library
 
 **Lecture Notes**
+* Midterm: Programming Test (Apr 18) [[problems](note/midterm1.pdf)] [[code](note/midterm.zip)]
 * Queue (Apr 7)[[pdf](note/queue.pdf)]
 * Lab 5. Recursion with Stack (Mar 31)[[link](https://github.com/hongshin/DataStructures/tree/lab5)]
 * Stack (Mar 31)[[pdf](note/stack.pdf)]
