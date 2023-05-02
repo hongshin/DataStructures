@@ -21,12 +21,12 @@ Write a program that receives advisor-advisee relation and then prints the acade
 		```
 		+Hwang
 		|   +--Park
-   	    |   +--Kim
+   	        |   |   +--Kim
    		|   |   +--Lee
-      	|   |      +--Woo
-      	|   |      +--Nam
+         	|   |       +--Woo
+      	        |   |       +--Nam
 		|   +--Choi
-   		|	    +--Hong
+   		|.      +--Hong
 		+Koh
 		    +--Wang
 		```
