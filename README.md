@@ -1,40 +1,43 @@
-# Data Structures #
+# Lab 7. Academic Family Tree #
 
-### Class Attributes ###
-* Meeting Time & Location
-  - Lecture: 10:00 AM Tue & Fri@ NTH 311
-  - Lab: 5:30 PM Tue @ NTH 412
-* Instructor: Shin Hong https://hongshin.github.io :e-mail: hongshin@handong.edu :door: OH 313
-* Teaching Assistants: To be announced
-* Class Policies: [POLICY.md](POLICY.md)
+Academic genealogy is represented as a family tree where *X* becomes the parent of *Y* if *X* advises *Y* in *Y*'s doctoral degree.
+Assume that each person has at most one advisor (i.e., parent)
+Write a program that receives advisor-advisee relation and then prints the academic family tree (see the example below)
 
-### Study Materials ###
+* Example
+	- Input
+		```
+		10 8
+		Park Kim
+		Park Lee
+		Hwang Park
+		Lee Woo
+		Lee Nam
+		Hwang Choi
+		Choi Hong
+		Koh Wang
+		```
+	- Output
+		```
+		+Hwang
+		|   +--Park
+   	    |   +--Kim
+   		|   |   +--Lee
+      	|   |      +--Woo
+      	|   |      +--Nam
+		|   +--Choi
+   		|	    +--Hong
+		+Koh
+		    +--Wang
+		```
 
-**Main textbooks**
-* Data structures and Algorithms in C++, 2nd edition  by Michael T. Goodrich et al.
-    - you can access the full-text at O’Reilly Higher Education via Handong Library
+* Input
+First line has two numbers *N* and *M* (0 < *N* ≤ 100,  0 < *M* ≤ 10000) , where *N* represents the number of scholars and *M* represents the number of advise relations.
+From second line, each line has *X* and *Y* where *X* is the advisor and *Y* is the advisee. The name of a scholar is a string without a blank. The length of a name is always less than 64.
 
-**Lecture Notes**
-* Midterm: Programming Test (Apr 18) [[problems](note/midterm1.pdf)] [[code](note/midterm.zip)]
-* Queue (Apr 7)[[pdf](note/queue.pdf)]
-* Lab 5. Recursion with Stack (Mar 31)[[link](https://github.com/hongshin/DataStructures/tree/lab5)]
-* Stack (Mar 31)[[pdf](note/stack.pdf)]
-* Lab 4. Algorithm Time Complexity Analysis (Mar 28)[[pdf](note/lab4.pdf)]
-* Asymptotic Complexity (Mar 24) [[pdf](note/asymptotic+complexity.pdf)]
-* Lab 3. Doubly Linked List (Mar 21) [[link](https://github.com/hongshin/DataStructures/tree/lab3)]
-* Linked List: doubly linked list and circularly linked list (Mar 17) [[pdf](note/linkedlist.pdf)]
-* Lab 2. Linked List (Mar 14) [[link](https://github.com/hongshin/DataStructures/tree/lab2)]
-* Linked List: singly linked list (Mar 14) [[pdf](note/linkedlist.pdf)]
-* Array-based Priority List (Mar 10) [[src](https://github.com/hongshin/DataStructures/tree/list)]
-* Lab 1. Array List (Mar 7) [[link](https://github.com/hongshin/DataStructures/tree/lab1)]
-* Array List (Mar 3) [[pdf](note/arraylist.pdf)]
-
-
-**Programming practice**
-- C++ intro. [[repo](https://github.com/hongshin/DataStructures/tree/cpp)]
-- List [[repo](https://github.com/hongshin/DataStructures/tree/list)]
-
-**Homework**
- - PA 2. String Transformation (due: 9PM, Apr 14) [[repo](https://github.com/hongshin/DataStructures/tree/pa2)]
- - PA 1. Sorted List with Generic Doubly Linked List (due: 9PM, Mar 31) [[repo](https://github.com/hongshin/DataStructures/tree/pa1)]
- 
+* Output
+Print out ``error`` if the given input is invalid.
+Given valid input, the output must be formed as follows:
+ - An advisor must be printed earlier than an advisee. 
+ - The indendation of an advisee must be one level higher than its advisor. And, the indendation should be decorated as given in the example
+ - Bar (``|``) connects two siblings when they are seperated.
