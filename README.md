@@ -15,9 +15,12 @@
     - you can access the full-text at O’Reilly Higher Education via Handong Library
 
 **Lecture Notes**
+* Lab 7. Tree (May 2) [[link](https://github.com/hongshin/DataStructures/tree/lab7)]
+* Tree (Apr 28 and May 2) [[link](note/tree.pdf)]
+* Lab 6. Queue (Apr 25) [[link](https://github.com/hongshin/DataStructures/tree/lab6)]
 * Midterm: Programming Test (Apr 18) [[problems](note/midterm1.pdf)] [[code](note/midterm.zip)]
 * Queue (Apr 7)[[pdf](note/queue.pdf)]
-* Lab 5. Recursion with Stack (Mar 31)[[link](https://github.com/hongshin/DataStructures/tree/lab5)]
+* Lab 5. Recursion with Stack (Mar 31) [[link](https://github.com/hongshin/DataStructures/tree/lab5)]
 * Stack (Mar 31)[[pdf](note/stack.pdf)]
 * Lab 4. Algorithm Time Complexity Analysis (Mar 28)[[pdf](note/lab4.pdf)]
 * Asymptotic Complexity (Mar 24) [[pdf](note/asymptotic+complexity.pdf)]
@@ -28,7 +31,6 @@
 * Array-based Priority List (Mar 10) [[src](https://github.com/hongshin/DataStructures/tree/list)]
 * Lab 1. Array List (Mar 7) [[link](https://github.com/hongshin/DataStructures/tree/lab1)]
 * Array List (Mar 3) [[pdf](note/arraylist.pdf)]
-
 
 **Programming practice**
 - C++ intro. [[repo](https://github.com/hongshin/DataStructures/tree/cpp)]
