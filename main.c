@@ -2,6 +2,18 @@
 #include <stdlib.h>
 #include "tree.h"
 
+void print_tree_node (tree_node * t)
+{
+	for (tree_node * i = t->parent ; i != NULL ; i = i->parent)
+		printf("\t") ;
+
+	//int depth = tree_node_depth(t) ;
+	//for (int i = 0 ; i < depth ; i++)
+	//	printf("\t") ;
+
+	printf("%s\n", t->elem) ;
+}
+
 int main ()
 {
 	tree_node * a = tree_alloc("A") ;
@@ -18,7 +30,6 @@ int main ()
 	tree_node * l = tree_alloc("L") ;
 	tree_node * m = tree_alloc("M") ;
 
-
 	tree_child_add(e, k) ;
 	tree_child_add(e, l) ;
 	tree_child_add(b, e) ;
@@ -34,7 +45,10 @@ int main ()
 	tree_child_add(d, j) ;
 	tree_child_add(a, d) ;
 	
-	tree_print(a) ; printf("\n") ;
+	//tree_print(a) ; 
+	tree_travel_preorder(a, print_tree_node) ;
+	//tree_travel_postorder(a, print_tree_node) ;
+	printf("\n") ;
 
 	tree_free(a) ;
 }
