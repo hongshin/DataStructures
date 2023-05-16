@@ -17,24 +17,24 @@ void swap (heap_t * h, int i1, int i2)
 	char * tmp = (char *) malloc(h->usize) ;
 	memcpy(tmp, node(h, i1), h->usize) ;
 	memcpy(node(h, i1), node(h, i2), h->usize) ;
-	memcpy(node(h, i2), node(h, i1), h->usize) ;
+	memcpy(node(h, i2), tmp, h->usize) ;
 }
 
 
 
 int parent (int i) 
 { 
-	//TODO
+	return i/2;
 }
 
 int left (int i) 
 { 
-	//TODO
+	return i*2 ;
 }
 
 int right (int i) 
 {
-	//TODO
+	return (i*2 + 1) ;
 }
 
 
@@ -65,17 +65,31 @@ int heap_size (heap_t * h)
 
 int heap_min (heap_t * h, void * buf)
 {
-	//TODO
+	if (h->size == 0)
+		return 0 ;
+
+	memcpy(buf, node(h, 1) ,h->usize);
+	return 1 ;
 }
 
 int heap_insert (heap_t * h, void * buf) 
 {
-	//TODO
+	if (h->size == h->capacity)
+		return 0 ;
+
+	(h->size)++ ;
+	memcpy(node(h, h->size), buf, h->usize);
+	
+	int curr = h->size ;
+
+	while (curr != 1 && 0 < cmp(h, parent(curr), curr)) {
+		swap(h, parent(curr), curr) ;
+		curr = parent(curr) ;
+	}
+	return 1 ;
 }
 
 int heap_remove (heap_t * h, void * buf)
 {
 	/*TODO*/
 }
-
-
