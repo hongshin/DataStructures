@@ -15,6 +15,10 @@
     - you can access the full-text at O’Reilly Higher Education via Handong Library
 
 **Lecture Notes**
+* Lab 9. Heap (May 16) [[link](https://github.com/hongshin/DataStructures/tree/lab9)] 
+* Heap (May 16)
+* Lab 8. Tree (May 9, May 12) [[link](https://github.com/hongshin/DataStructures/tree/lab8)]
+* Tree (May 9)
 * Lab 7. Tree (May 2) [[link](https://github.com/hongshin/DataStructures/tree/lab7)]
 * Tree (Apr 28 and May 2) [[link](note/tree.pdf)]
 * Lab 6. Queue (Apr 25) [[link](https://github.com/hongshin/DataStructures/tree/lab6)]
