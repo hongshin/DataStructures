@@ -15,6 +15,8 @@
     - you can access the full-text at O’Reilly Higher Education via Handong Library
 
 **Lecture Notes**
+* Binary search [[link](https://github.com/hongshin/DataStructures/tree/binsearch/english_words)] 
+* Map (May 19 & May 23) [[link](note/map.pdf)]
 * Lab 9. Heap (May 16) [[link](https://github.com/hongshin/DataStructures/tree/lab9)] 
 * Heap (May 16)
 * Lab 8. Tree (May 9, May 12) [[link](https://github.com/hongshin/DataStructures/tree/lab8)]
@@ -41,6 +43,6 @@
 - List [[repo](https://github.com/hongshin/DataStructures/tree/list)]
 
 **Homework**
+ - PA 3. Heap (due: 5 PM, May 23) [[repo](https://github.com/hongshin/DataStructures/tree/pa3)]
  - PA 2. String Transformation (due: 9PM, Apr 14) [[repo](https://github.com/hongshin/DataStructures/tree/pa2)]
  - PA 1. Sorted List with Generic Doubly Linked List (due: 9PM, Mar 31) [[repo](https://github.com/hongshin/DataStructures/tree/pa1)]
- 
