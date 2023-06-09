@@ -161,7 +161,7 @@ bool AVLTree::insert (Key k, const Value v)
 			}
 
 			if (z->left->height - z->right->height == 2 || 
-				z->right->height - z->left->height == -2)
+				z->right->height - z->left->height == 2)
 				break ;
 		
 			x = y ;
