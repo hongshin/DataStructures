@@ -19,7 +19,7 @@
 * Sorting (May 26 & May 30) [[link](note/sorting.pdf)]
 * Binary search [[link](https://github.com/hongshin/DataStructures/tree/binsearch/english_words)] 
 * Map (May 19 & May 23) [[link](note/map.pdf)]
-* Heap (May 16)
+* Heap (May 16) [[link](note/heap.pdf)]
 * Tree (May 9)
 * Tree (Apr 28 and May 2) [[link](note/tree.pdf)]
 * Queue (Apr 7)[[pdf](note/queue.pdf)]
