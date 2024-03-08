@@ -10,4 +10,5 @@
 	- Jeewoong Kim :e-mail: jeewoong@chungbuk.ac.kr
 
 
-
+### Class materials ###
+* Mar 8 Fri: Array and Structure (Ch. 2) [\[slide\]](notes/ch2.pdf) [\[code\]](notes/Mar8)
