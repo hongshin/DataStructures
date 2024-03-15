@@ -11,4 +11,6 @@
 
 
 ### Class materials ###
-* Mar 8 Fri: Array and Structure (Ch. 2) [\[slide\]](notes/ch2.pdf) [\[code\]](notes/Mar8)
+* Mar 15 Fri: Array and Structure (Ch. 2) [\[code\]](code/Mar15)
+* Mar 13 Wed: Array and Structure (Ch. 2) [\[code\]](code/Mar13)
+* Mar 8 Fri: Array and Structure (Ch. 2) [\[slide\]](notes/ch2.pdf) [\[code\]](code/Mar8)
