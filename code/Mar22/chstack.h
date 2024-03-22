@@ -1,0 +1,34 @@
+typedef 
+	struct {
+		char * buffer ;
+		int capacity ;
+		int size ;
+	} 
+	stack_t ;
+
+stack_t * 
+create_stack (int capacity) ;
+
+void
+delete_stack (stack_t * stack) ;
+
+int 
+push (stack_t * stack, char elem) ;
+
+int
+pop (stack_t * stack, char * elem) ;
+
+int
+top (stack_t * stack, char * elem) ;
+
+int 
+is_empty (stack_t * stack) ;
+
+int 
+is_full (stack_t * stack) ;
+
+int
+get_size (stack_t * stack) ;
+
+int 
+get_elem (stack_t * stack, int index, char * elem) ;
