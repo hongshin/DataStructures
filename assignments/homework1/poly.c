@@ -145,9 +145,10 @@ void poly_show (poly_t * p)
 			printf("x^%d", p->terms[i].exp) ;
 		}
 		if (i != p->n_terms - 1) {
-			printf("+") ;
+			if (p->terms[i + 1].coef >= 0.0) {
+				printf("+") ;
+			}
 		}
-		printf(" ") ;
 	}
 	printf("\n") ;
 }
@@ -157,8 +158,8 @@ int main ()
 	//1.0x^2 + 2.0x+ 1.0 
 	poly_t * p = poly_zero() ;
 	printf("%d\n", p == poly_attach(p, 1.0, 2)) ;
-	printf("%d\n", p == poly_attach(p, 2.0, 1)) ;
-	printf("%d\n", p == poly_attach(p, 1.0, 0)) ;
+	printf("%d\n", p == poly_attach(p, -2.0, 1)) ;
+	printf("%d\n", p == poly_attach(p, -1.0, 0)) ;
 	printf("%d\n", p == poly_attach(p, 2.0, 2)) ;
 	poly_show(p) ;
 
