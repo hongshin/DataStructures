@@ -11,6 +11,7 @@
 
 
 ### Class materials ###
+* Mar 29 Fri: Stack and Queue [\[code\]](code/Mar29)
 * Mar 27 Wed: Stack (Ch. 3( [\[code\]](code/Mar27)
 * Mar 22 Fri: Stack (Ch. 3) [\[slide\]](notes/ch3-stack-r1.pdf) [\[code\]](code/Mar22)
 * Mar 20 Wed: Stack (Ch. 3) [\[slide\]](notes/ch3-stack.pdf) [\[code\]](code/Mar20) 
