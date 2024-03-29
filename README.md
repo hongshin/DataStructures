@@ -21,4 +21,6 @@
 
 
 ### Assignments ###
+* Homework 2 (due: 7 PM, Apr 9 Tue): [\[desc\]](assignments/homework2/homework2.pdf) [\[code\]](assignments/homework2)
 * Homework 1 (due: 7 PM, Mar 29 Fri): [\[desc\]](assignments/homework1/homework1.pdf) [\[code\]](assignments/homework1/poly.c)
+
