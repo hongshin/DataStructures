@@ -3,7 +3,7 @@ typedef
 		void * buffer ;
 		int unit ;
 		int capacity ;
-		int top ;
+		int size ;
 	} 
 	stack_t ;
 
