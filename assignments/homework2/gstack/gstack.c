@@ -2,10 +2,10 @@
 #include <string.h>
 #include "gstack.h"
 
-stack_t * 
+gstack_t * 
 create_stack (int capacity, int unit) 
 {
-	stack_t * st = malloc(sizeof(stack_t)) ;
+	gstack_t * st = malloc(sizeof(gstack_t)) ;
 	st->capacity = capacity ;
 	st->unit = unit ;
 	st->size = 0 ;
@@ -14,7 +14,7 @@ create_stack (int capacity, int unit)
 }
 
 void
-delete_stack (stack_t * st) 
+delete_stack (gstack_t * st) 
 {
 	if (st->buffer != 0x0)
 		free(st->buffer) ;
@@ -22,7 +22,7 @@ delete_stack (stack_t * st)
 }
 
 int 
-push (stack_t * st, void * elem)
+push (gstack_t * st, void * elem)
 {
 	if (is_full(st))
 		return 0 ;
@@ -33,7 +33,7 @@ push (stack_t * st, void * elem)
 }
 
 int
-pop (stack_t * st, void * elem)
+pop (gstack_t * st, void * elem)
 {
 	if (is_empty(st)) 
 		return 0 ;
@@ -44,25 +44,25 @@ pop (stack_t * st, void * elem)
 }
 
 int 
-is_empty (stack_t * st) 
+is_empty (gstack_t * st) 
 {
 	return (st->size == 0) ;
 }
 
 int 
-is_full (stack_t * st) 
+is_full (gstack_t * st) 
 {
 	return (st->size == st->capacity) ;
 }
 
 int
-get_size (stack_t * st) 
+get_size (gstack_t * st) 
 {
 	return st->size ;
 }
 
 int
-get_element (stack_t * st, int index, void * elem)
+get_element (gstack_t * st, int index, void * elem)
 {
 	if (st->size <= index)
 		return 0 ;

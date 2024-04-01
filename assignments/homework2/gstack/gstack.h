@@ -5,28 +5,28 @@ typedef
 		int capacity ;
 		int size ;
 	} 
-	stack_t ;
+	gstack_t ;
 
-stack_t * 
+gstack_t * 
 create_stack (int capacity, int unit) ;
 
 void
-delete_stack (stack_t * stack) ;
+delete_stack (gstack_t * stack) ;
 
 int 
-push (stack_t * stack, void * elem) ;
+push (gstack_t * stack, void * elem) ;
 
 int
-pop (stack_t * stack, void * elem) ;
+pop (gstack_t * stack, void * elem) ;
 
 int 
-is_empty (stack_t * stack) ;
+is_empty (gstack_t * stack) ;
 
 int 
-is_full (stack_t * stack) ;
+is_full (gstack_t * stack) ;
 
 int
-get_size (stack_t * stack) ;
+get_size (gstack_t * stack) ;
 
 int
-get_element (stack_t * stack, int index, void * elem) ;
+get_element (gstack_t * stack, int index, void * elem) ;
