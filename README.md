@@ -11,6 +11,7 @@
 
 
 ### Class materials ###
+* Apr 5 Fri: Circular Queue [\[slide\]](notes/ch3-queue-r2.pdf) [\[code\]](code/Apr5)
 * Apr 3 Wed: Circular Queue [\[code\]](code/Apr3)
 * Mar 29 Fri: Stack and Queue [\[code\]](code/Mar29)
 * Mar 27 Wed: Stack (Ch. 3( [\[code\]](code/Mar27)
