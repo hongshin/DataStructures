@@ -6,23 +6,35 @@ int main ()
 {
 	gqueue_t * q ;
 
-	q = create_queue(4, sizeof(double)) ;
+	int n = 0;
+	printf("How many soldiers? :");
+	scanf("%d", &n);
 
-	int i ;
-	double d ;
-	for (i = 0 ; i < 5 ; i++) {
-		d = (double) i ;
-		enqueue(q, &d) ;
+	int m = 0;
+	printf("input m: ");
+	scanf("%d", &m);
+
+	q = create_queue(n, sizeof(int));
+	
+	for(int i = 1; i <= n; i++){
+		enqueue(q, &i);
 	}
 
-	dequeue(q, &d) ;
-	dequeue(q, &d) ;
-
-	for (i = 0 ; i < get_size(q) ; i++) {
-		dequeue(q, &d) ;
-		printf("%d\n", d) ;
+	int turn = 0;
+	while(get_size(q) > 1){
+		int curr;
+		dequeue(q, &curr);
+		if(turn < m - 1){
+			enqueue(q, &curr);
+			turn +=1;
+		}
+		else{
+			turn = 0;
+		}
 	}
-
+	int answer;
+	dequeue(q, &answer);
+	printf("%d\n", answer);
 
 	return EXIT_SUCCESS ;
 }

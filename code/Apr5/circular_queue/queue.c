@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <string.h>
 #include "queue.h"
 
 gqueue_t * 
@@ -6,8 +7,7 @@ create_queue (int capacity, int unit)
 {
 	gqueue_t * queue = (gqueue_t *) malloc(sizeof(gqueue_t)) ;
 	queue->capacity = capacity ;
-	queue->unit = unit ;
-
+	queue->unit = unit;
 	queue->front = 0 ;
 	queue->rear = 0 ;
 	queue->size = 0 ;
@@ -29,8 +29,22 @@ enqueue (gqueue_t * queue, void * elem)
 {
 	if (is_full(queue))
 		return 0 ;
-	
-	memcpy(queue->buffer + queue->rear * queue->unit, elem, queue->unit) ;
+	//gqueue
+
+	// for(int i = 0; i < queue->unit; i++){
+	// 	*(queue->buffer + queue->rear * queue->unit + i) = *(elem +i);
+	// }
+
+	//=>
+	memcpy(queue->buffer + (queue->rear * queue->unit), elem, queue->unit);
+
+
+	//when just circular( not gqueue)
+	//queue->buffer[queue->rear] = elem ;
+	//queue->rear += 1 ;
+	// if (queue->rear == queue->capacity) {
+	// 	queue->rear = 0 ;
+	// }
 	queue->rear = (queue->rear + 1) % queue->capacity ;
 	queue->size += 1 ;
 	return 1 ;
@@ -41,10 +55,10 @@ dequeue (gqueue_t * queue, void * elem)
 {
 	if (is_empty(queue)) 
 		return 0 ;
-	
-	memcpy(elem, queue->buffer + queue->front * queue->unit, queue->unit) ;
-	queue->front = (queue->front + 1) % queue->capacity ;
+	memcpy(elem , queue->buffer + (queue->front * queue->unit), queue->unit);
 	//*elem = queue->buffer[queue->front] ;
+	queue->front = (queue->front +1) % queue->capacity;
+
 	queue->size -= 1 ;
 	return 1;
 }
@@ -55,7 +69,6 @@ front (gqueue_t * queue, void * elem)
 	if (is_empty(queue)) 
 		return 0 ;
 	
-	memcpy(elem, queue->buffer + queue->front * queue->unit, queue->unit) ;
 	//*elem = queue->buffer[queue->front] ;
 	return 1;
 }
@@ -81,14 +94,23 @@ get_size (gqueue_t * queue)
 int
 get_elem (gqueue_t * queue, int i, void * elem)
 {
-	if (index < 0)
+	if (i < 0)
 		return 0 ;
-	if (queue->size <= index)
+	if (queue->size <= i)
 		return 0 ;
+
+	int index  = (queue->front + i) % queue->capacity;
+
+
+	memcpy(elem, queue->buffer+(index * queue->unit)+i, queue->unit);
 
 	//*elem = queue->buffer[(queue->front + i) % queue->capacity] ;
-	int index = (queue->front + i) % queue->capacity ;
-	memcpy(elem, queue->buffer + index * queue->unit, queue->unit) ;
-
 	return 1 ;
 }
+
+
+
+
+
+
+
