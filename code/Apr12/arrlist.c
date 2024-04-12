@@ -24,11 +24,10 @@ arrlist_t * create_arrlist (int capacity)
 	}
 	l->arrlen = capacity + 1 ; //0번으로가면 넣은자리가 없다 표현용
 	l->size = 0 ;
-	l->first = 0 ;  //출발점
-	l->data = (char **) calloc(l->arrlen, sizeof(char *)) ; //데이터 들어가는 공간
-	l->link = (int *) calloc(l->arrlen, sizeof(int)) ; //데이터간의 연결순서를 표현
-	memset(l->data, 0, l->arrlen * sizeof(char*)) ;
-	memset(l->link, 0, l->arrlen * sizeof(int)) ; //초기화
+	l->first = 0 ;
+	l->data = (char **) calloc(l->arrlen, sizeof(char *)) ;
+	l->link = (int *) calloc(l->arrlen, sizeof(int)) ;
+	memset(l->link, 0, l->arrlen * sizeof(int)) ; 
 	if (l->data == NULL || l->link == NULL) {
 		free(l) ;
 		return NULL ;
@@ -45,7 +44,6 @@ int insert_arrlist (arrlist_t * l, char * s)
 	if (l->size == l->arrlen - 1)
 		return 0 ;
 
-	//allocate an empty slot to store s
 	int next = 1 ;
 	while (l->data[next] != NULL) {
 		next++ ;
@@ -54,26 +52,8 @@ int insert_arrlist (arrlist_t * l, char * s)
 	l->link[next] = 0 ; //그다음이 없다.
 
 	/* TODO */
-	//link new data to last data
-	if(l->first == 0){
-		l->first = next;
-	}
-	else{
-		//int i;
-		//for( i = l->first; l->link[i] != 0; i = l->link[i]);
-		int last = l->first;
-		while (!(l->link[last] ==0)){
-			last = l->link[last] ; //마지막꺼 찾음.
-		}
-		//l->link[i] = 0;
-		l->link[last] =  next; //마지막꺼랑 새로넣은거랑 연결시켜줌
-
-
-	}
-
 
 	l->size++ ;
-
 	return 1 ;
 }
 
@@ -85,28 +65,11 @@ char * delete_arrlist (arrlist_t * l, char * s)
 	int i, prev ;
 
 	/* TODO */
-	//find index to delete and previous link
-	
-	prev = 0;
-	i = l->first;
-
-	while(i != 0){
-		if(strcmp(s,l->data[i]) == 0){
-			break;
-		}
-		prev = i;
-		i = l->link[i];
-	}
-	if( i == 0 )
-		return NULL;
-
-	
-
 
 	char * r = l->data[i] ;
 	l->data[i] = NULL ;
 
-	if (prev == 0) { //뺴야될 애가 first인경우
+	if (prev == 0) {
 		l->first = l->link[i] ;
 	}
 	else {

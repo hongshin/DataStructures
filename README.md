@@ -5,7 +5,7 @@
 	- Time: 4:00-6:00 PM, Wed & 1:00-2:00 PM, Fri (3 hours a week)
 	- Location: 205 S4-1 (Open-source Software Lab)
 * Instructor
-	- Shin Hong https://hongshin.github.io :e-mail: hongshin@gmail.com.edu :door: 316 S4-1
+	- Shin Hong https://hongshin.github.io :e-mail: hongshin@gmail.com :door: 316 S4-1
 * Teaching Assistant
 	- Jeewoong Kim :e-mail: jeewoong@chungbuk.ac.kr
 
@@ -24,6 +24,7 @@
 
 
 ### Assignments ###
+* Homework 3 (due: 7 PM, Apr 30 Tue): [\[desc\]](assignments/homework3/homework3.pdf) [\[code\]](assignments/homework3)
 * Homework 2 (due: 7 PM, Apr 9 Tue): [\[desc\]](assignments/homework2/homework2.pdf) [\[code\]](assignments/homework2)
 * Homework 1 (due: 7 PM, Mar 29 Fri): [\[desc\]](assignments/homework1/homework1.pdf) [\[code\]](assignments/homework1/poly.c)
 
