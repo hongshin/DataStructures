@@ -27,6 +27,7 @@ arrlist_t * create_arrlist (int capacity)
 	l->first = 0 ;
 	l->data = (char **) calloc(l->arrlen, sizeof(char *)) ;
 	l->link = (int *) calloc(l->arrlen, sizeof(int)) ;
+	memset(l->data, 0, l->arrlen * sizeof(char *)) ;
 	memset(l->link, 0, l->arrlen * sizeof(int)) ; 
 	if (l->data == NULL || l->link == NULL) {
 		free(l) ;
@@ -44,6 +45,8 @@ int insert_arrlist (arrlist_t * l, char * s)
 	if (l->size == l->arrlen - 1)
 		return 0 ;
 
+
+	// allocate an empty slot to store s
 	int next = 1 ;
 	while (l->data[next] != NULL) {
 		next++ ;
@@ -51,10 +54,25 @@ int insert_arrlist (arrlist_t * l, char * s)
 	l->data[next] = s ;
 	l->link[next] = 0 ;
 
-	/* TODO */
+	/* TODO: link */
+
+	if (l->first == 0) {
+		l->first = next ;
+	}
+	else {
+		//int i ;
+		//for (i = l->first ; l->link[i] != 0 ; i = l->link[i]) ;
+
+		int last ;
+		last = l->first ;
+		while (!(l->link[last] == 0)) {
+			last = l->link[last] ;
+		}
+		// l->link[last] == 0
+		l->link[last] = next ;
+	}
 
 	l->size++ ;
-
 	return 1 ;
 }
 
@@ -64,13 +82,24 @@ char * delete_arrlist (arrlist_t * l, char * s)
 		return NULL ;
 
 	int i, prev ;
-
-	/* TODO */
+	
+	prev = 0 ;
+	i = l->first ;
+	
+	while (i != 0) {
+		if (strcmp(s, l->data[i]) == 0) {
+			break ;
+		}
+		prev = i ;
+		i = l->link[i] ;
+	}
+	if (i == 0) 
+		return NULL ;
 
 	char * r = l->data[i] ;
 	l->data[i] = NULL ;
 
-	if (prev == 0) {
+	if (i == l->first /*prev == 0*/) {
 		l->first = l->link[i] ;
 	}
 	else {
