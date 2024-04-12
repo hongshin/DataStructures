@@ -27,7 +27,10 @@ void load_board (char * filename)
 		exit(EXIT_FAILURE) ;
 	} 
 
-	fscanf(fp, "%d %d %d", &M, &N, &K) ;
+	if (fscanf(fp, "%d %d %d", &M, &N, &K) != 3) {
+		fprintf(stderr, "File format error\n") ;
+		exit(EXIT_FAILURE) ;
+	}
 
 	/* TODO */
 
