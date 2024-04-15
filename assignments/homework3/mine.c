@@ -2,22 +2,28 @@
 #include <stdlib.h>
 #include <string.h>
 #include "gqueue.h"
+#include <sys/time.h>
+#include <sys/wait.h>
+#include <signal.h>
+#include <unistd.h>
 
 typedef enum {
 		closed, marked, open
 	}
 	cell_state ;
 
-typedef struct {
+typedef struct { //mined, numbered(팔방으로 주변에 지뢰가 몇개인지), safe(0)
 		int mined ;
+		int visited;
 		int num ;
 		cell_state state ; 
 	}
 	cell_t  ;
 
 
-int M, N, K ;
-cell_t board[16][16] = {{ {0, 0, 0} }} ;
+int M, N, K ; //board 구성: M rows, N col, K cells where mine placed
+cell_t board[16][16] = {{ {0, 0, 0, 0} }} ; //지뢰 아니고, 숫자아니고, 닫혀있다.
+int is_validMove(int row, int col);
 
 void load_board (char * filename)
 {
@@ -27,19 +33,55 @@ void load_board (char * filename)
 		exit(EXIT_FAILURE) ;
 	} 
 
+	//board 구성: M rows, N col, K cells where mine placed
 	if (fscanf(fp, "%d %d %d", &M, &N, &K) != 3) {
 		fprintf(stderr, "File format error\n") ;
 		exit(EXIT_FAILURE) ;
 	}
 
-	/* TODO */
-
+	//지뢰,지뢰 주변 좌표 및 정보 업데이트
+	int row, col;
+	int neighbor_row, neighbor_col;
+	int x[] = {1,1,0,-1,-1,-1,0,1};
+	int y[] = {0,-1,-1,-1,0,1,1,1};
+	for (int i = 0; i < K; i++){
+		if(fscanf(fp, "%d %d", &row, &col) != 2){ //받은 인자 값이 2개 가 아닐경우 
+			fprintf(stderr, "Error: File format\n") ;
+			exit(EXIT_FAILURE) ;
+		}
+		board[row][col].mined = 1;
+		board[row][col].num = 9; //지뢰 있는곳을 9이라 설정, 지뢰가 옆에 있을 최대 경우의 수는 8임 
+		board[row][col].state = closed;
+		for(int j = 0; j < 8; j++){
+			neighbor_row = row - x[j];
+			neighbor_col = col - y[j];
+			if(is_validMove(neighbor_row,neighbor_col) == 1 && board[neighbor_row][neighbor_col].mined != 1){
+				board[neighbor_row][neighbor_col].mined = 0;
+				board[neighbor_row][neighbor_col].num += 1;
+			}
+		}
+	}
+	
 	fclose(fp) ;
 }
 
+int is_validMove(int row, int col){
+	if(row >= 0 && row < M && col >=0 && col < N){
+		return 1;
+	}
+	return 0;
+}
+
 int is_terminated ()
-{
-	/* TODO */
+{		
+	//지뢰가 열려있으면 종료해야됨
+	for(int i = 0; i < M; i++){
+		for(int j = 0; j < N; j++){
+			if(board[i][j].mined == 1 && board[i][j].state == open){
+				return 1;
+			}
+		}
+	}
 	return 0 ;
 }
 
@@ -48,22 +90,155 @@ void draw_board ()
 	int col, row ;
 	for (row = 0 ; row < M ; row++) {
 		for (col = 0 ; col < N ; col++) {
-			printf("+ ") ;
-
+			switch (board[row][col].state)
+			{
+			case closed:
+				printf("+ ") ;
+				break;
+			case marked:
+				printf("! ");
+				break;
+			case open:
+				if(board[row][col].mined != 1){
+					printf("%d ", board[row][col].num);
+					break;	
+				}
+				printf("* "); //지뢰일때
+				break;
+			default:
+				break;
+			}
 		}
 		printf("\n") ;
 	}
-	/* FIXME */
+}
+
+void setSafeZone(int row, int col){
+	gqueue_t* rowToSet = create_queue(M*N, sizeof(int));
+	gqueue_t* colToSet = create_queue(M*N, sizeof(int));
+	gqueue_t* nearby_row = create_queue(300, sizeof(int));
+	gqueue_t* nearby_col = create_queue(300, sizeof(int));
+
+	if (rowToSet == NULL || colToSet == NULL) {
+        fprintf(stderr,"Error: Queue is not initialized, check the code.\n");
+        exit(EXIT_FAILURE);
+    }
+
+	//시계방향 탐색
+	int add_row[] = {0,1,1,1,0,-1,-1,-1};
+	int add_col[] = {1,1,0,-1,-1,-1,0,1};
+
+	enqueue(rowToSet, &row);
+	enqueue(colToSet, &col);
+
+	int cur_row;
+	int cur_col;
+	int d = 0; //direction
+	int nxt_row;
+	int nxt_col;
+
+	//0이 있는 덩어리 탐색후 그 부분 방문기록 남기기
+	while(is_empty(rowToSet) == 0){
+		dequeue(rowToSet, &cur_row);
+		dequeue(colToSet, &cur_col);
+		board[cur_row][cur_col].visited = 1;
+
+		for(d = 0; d < 8; d++){
+			nxt_row = cur_row + add_row[d];
+			nxt_col = cur_col + add_col[d];
+
+			//printf("%d %d\n",nxt_row,nxt_col);
+
+			if(is_validMove(nxt_row,nxt_col) == 1){
+				enqueue(nearby_row, &nxt_row);
+				enqueue(nearby_col, &nxt_col);
+				//printf("enqueued: %d %d\n",nxt_row,nxt_col);
+		 		if(board[nxt_row][nxt_col].visited != 1 && board[nxt_row][nxt_col].num == 0){
+		 			enqueue(rowToSet, &nxt_row);
+		 			enqueue(colToSet, &nxt_col);
+		 		}
+
+		 	}
+		}
+	}
+	
+	//safe부분에서 0부분 open처리
+	for(int i = 0; i < M; i++){
+		for(int j = 0; j < N; j++){
+			if(board[i][j].visited == 1){
+				board[i][j].state = open;
+			}
+		}
+	}
+
+
+	//safe주변의 숫자들 open처리 
+	int nby_row;
+	int nby_col;
+
+	while(is_empty(nearby_row) == 0){
+		dequeue(nearby_row, &nby_row);
+		dequeue(nearby_col, &nby_col);
+		//printf("dequeued\n");
+		board[nby_row][nby_col].state = open;
+	}
+
+	//메모리 반납
+	delete_queue(rowToSet);
+	delete_queue(colToSet);
+	delete_queue(nearby_row);
+	delete_queue(nearby_col);
+	return; 
 }
 
 void read_execute_userinput ()
 {	
-	/* FIXME*/
-	printf(">") ;
+	/* FIXME*/	
+	printf("The command should be 'mark' or 'open'\n");
+	printf("example: open 1 1\n\n");
+	printf("Input command row col > ") ;
 
 	char command[16] ;
 	int col, row ;
-	scanf("%15s %d %d", command, &row, &col) ;
+
+	//getchar();
+
+	if(scanf("%15s %d %d", command, &row, &col) != 3){
+		fprintf(stderr, "error: Invalid Input Value\n");  //이부분 안됨 2개 인풋 받았을때 처리 안됨
+		return;
+	}
+
+	if(strcmp(command,"open") == 0){  //문자열 일치
+		if(board[row][col].state != open){
+			board[row][col].state = open;
+			//when it is safe
+			if(board[row][col].num == 0){
+				//change the state of nearby safe cells as 'open' 
+				setSafeZone(row, col);
+			}  	
+		}
+		else{
+			fprintf(stderr, "error: the cell is already opened\n\n");
+		}
+
+	}
+	else if(strcmp(command,"mark") == 0){
+		if(board[row][col].state != marked){
+			board[row][col].state = marked;
+			return;
+		}
+		board[row][col].state = closed; //이미 마크되어 있으면 해제
+		return;
+	} 
+	else{
+		fprintf(stderr, "error: Invalid input value\n");
+		read_execute_userinput();
+	}
+}
+
+void alarmhandler(int sig){
+	fprintf(stderr,"\n!!!!!TIMES UP!!!!!!\n");
+	kill(getpid(),SIGKILL); //sigalrm이 울린 프로세스를 kill
 }
 
 int main (int argc, char ** argv)
@@ -73,12 +248,39 @@ int main (int argc, char ** argv)
 		return EXIT_FAILURE ;
 	}
 
-	load_board(argv[1]) ;
+	load_board(argv[1]) ; //load board.txt
 
-	while (!is_terminated()) {
-		draw_board() ;
-		read_execute_userinput() ;
+	//코드 상황 보려고 만들어 놓은거
+	// for(int i = 0; i < 16; i++){
+	// 	for (int j = 0; j < 16; j++) {
+	// 		board[i][j].state = open;
+	// 	}
+	// }
+
+	struct timeval start_time, end_time;
+    double elapsed_time;
+	signal(SIGALRM, alarmhandler); //sigalrm이 발생하면 alarmhandler 작동
+
+	//타이머 설정 (5*60초 지나면 프로세스 강제 종료)
+	alarm(5*60);
+	// 프로세스 시작 시간 기록
+    gettimeofday(&start_time, NULL);
+
+	while (!(is_terminated())) { //^c눌리면 종료
+		draw_board() ; //board 출력
+		read_execute_userinput() ; //좌표 선택
 	}
+	// 프로세스 종료 시간 기록
+    gettimeofday(&end_time, NULL);
+	// 경과 시간 계산
+    elapsed_time = (end_time.tv_sec - start_time.tv_sec) + (end_time.tv_usec - start_time.tv_usec) / 1000000.0;
+
+	draw_board() ; 
+	printf("\n!!you choose landmine!!\n");
+	
+	// 결과 출력
+    printf("Elapsed time: %f seconds\n", elapsed_time);
+
 
 	return EXIT_SUCCESS ;
 }

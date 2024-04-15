@@ -82,7 +82,7 @@ get_size (gqueue_t * queue)
 int
 get_elem (gqueue_t * queue, int i, void * elem)
 {
-	if (index < 0)
+	if (i < 0)
 		return 0 ;
 	if (queue->size <= i)
 		return 0 ;
