@@ -12,7 +12,6 @@ typedef
 typedef 
 	struct {
 		llist_node_t * last ;
-		int size ;
 	}
 	llist_t ;
 
@@ -21,7 +20,6 @@ llist_t * create_llist ()
 {
 	llist_t * l = (llist_t *) malloc(sizeof(llist_t)) ;
 	l->last = NULL ;
-	l->size = 0 ;
 	return l ; 
 }
 
@@ -37,9 +35,9 @@ int insert_llist (llist_t * l, char * s)
 		return 1 ;
 	}
 
-	n->next = last->next ;
-	last->next = n ;
-	last = n ;
+	n->next = l->last->next ;
+	l->last->next = n ;
+	l->last = n ;
 
 	return 1 ;
 }
