@@ -6,7 +6,7 @@ typedef
 	struct _llist_node_t {
 		char * data ;
 		struct _llist_node_t * next ;
-	}
+	} 
 	llist_node_t ;
 
 typedef 
@@ -33,14 +33,24 @@ int insert_llist (llist_t * l, char * s)
 	
 	if (l->first == NULL) {
 		l->first = n ;
+		l->size = 1 ;
 		return 1 ;
 	}
 
+	/*
+	n->next = l->first ;
+	l->first = n ;
+	l->size++ ;
+	*/
+
+	
 	llist_node_t * last = l->first ;
-	while (last->next != NULL) {
+	while (!(last->next == NULL)) {
 		last = last->next ;
 	}
+	// last->next == NULL
 	last->next = n ;
+	l->size++ ;
 
 	return 1 ;
 }
@@ -48,14 +58,13 @@ int insert_llist (llist_t * l, char * s)
 char * delete_llist (llist_t * l, char * s) 
 {
 	llist_node_t * i ;
-	llist_node_t * prev ; 
-	for (i = l->first ; i != NULL ; i = i->next) {
+	llist_node_t * prev = NULL ; 
+	for (i = l->first ; i != NULL ; i = i->next){
 		if (strcmp(i->data, s) == 0) {
 			break ;
 		}
 		prev = i ;
 	}
-
 	if (i == NULL)
 		return NULL ;
 
