@@ -92,7 +92,13 @@ void print_llist (llist_t * l)
 
 void free_llist (llist_t * l)
 {
-	/*TODO*/
+	llist_node_t * i ;
+	for (i = l->first ; i != NULL ; ) {
+		llist_node_t * current = i ;
+		i = i->next ;
+		free(current) ;
+	}
+	free(l) ;
 }
 
 /*****/

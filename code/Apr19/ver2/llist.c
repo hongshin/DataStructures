@@ -90,9 +90,16 @@ void print_llist (llist_t * l)
 	if (l->last == NULL)
 		return ;
 
-	/*TODO*/
+	llist_node_t * i ;
 
+	i = l->last->next ;
+	do {
+		printf("%s ", i->data) ;
+
+		i = i->next ;
+	} while (i == l->last->next) ;
 	printf("\n") ;
+
 }
 
 void free_llist (llist_t * l)
