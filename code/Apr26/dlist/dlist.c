@@ -110,83 +110,21 @@ dlist_remove_last (dlist_t * l, void * e)
 	return 1 ;
 }
 
-int 
+int
 dlist_get (dlist_t * l, int index, void * e)
-/* 
- * copies the data at the given index ``index``, if exists, to ``e``, and returns 1.
- * if not exists, return 0.
- */
 {
-	if (index < 0)
-		return 0 ;
-
-	node_t * n = l->right ;
-	int i = 0 ; 
-
-	for (i = 0 ; i < index ; i++) {
-		n = n->right ;
-		if (n == l) {
-			return 0 ;
-		}
-	}
-	
-	memcpy(e, n->element, *((int *) l->element)) ;
-	return 1 ;
+	return 0 ;
 }
 
-int 
-dlist_remove_at (dlist_t * l, int index)
-/*
- * removes the node at the given index ``index``, if exists, and returns 1.
- * if not exists, return 0.
- */
+void
+dlist_apply (dlist_t * l, void (* func)(void * e)) 
 {
-	if (index < 0)
-		return 0 ;
+	node_t * i ;
 
-	node_t * n = l->right ;
-	int i = 0 ; 
-
-	for (i = 0 ; i < index ; i++) {
-		n = n->right ;
-		if (n == l) {
-			return 0 ;
-		}
+	for (i = l->right ; i != l ; i = i->right) {
+		func(i->element) ;
 	}
-
-	n->left->right = n->right ;
-	n->right->left = n->left ;
-	free(n->element) ;
-	free(n) ;
-	return 1 ;
 }
-
-int 
-dlist_append (dlist * l1, dlist * l2)
-/*
- * add all elements in ``l2`` to ``l1``, in their order in ``l2``.
- * return the number of added elements.
- */
-
-{
-	node_t * i2 ;
-	for (i2 = l2->right ; i2 != l2 ; i2 = i2->right) {
-		
-		node_t * _new = malloc(sizeof(node_t)) ;
-		_new->element = malloc(sizeof(*((int *)(l2->element)))) ;
-		memcpy(_new->element, i2->element, *((int *)l2->element)) ;
-
-		_new->left = l1->left ;
-		_new->right = l1 ;
-
-		l1->left->right = _new ;
-		l1->left = _new ;
-
-	}
-
-}
-
-
 
 
 
