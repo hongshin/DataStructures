@@ -11,6 +11,10 @@
 
 
 ### Class materials ###
+* Apr 26 Fri: Linked List [\[slide\]](notes/ch4-llist.pdf) [\[code\]](code/Apr26)
+* Apr 24 Wed: Linked List [\[slide\]](notes/ch4-llist.pdf) [\[code\]](code/Apr24)
+* Apr 19 Fri: Linked List [\[slide\]](notes/ch4-llist.pdf) [\[code\]](code/Apr19) 
+* Apr 17 Wed: Test 1 [\[pdf\]](test/test1.pdf) [\[code\]](test/test1)
 * Apr 12 Fri: Linked List [\[slide\]](notes/ch4-llist.pdf) [\[code\]](code/Apr12)
 * Apr 5 Fri: Circular Queue [\[slide\]](notes/ch3-queue-r2.pdf) [\[code\]](code/Apr5)
 * Apr 3 Wed: Circular Queue [\[code\]](code/Apr3)
