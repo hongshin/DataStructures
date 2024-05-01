@@ -105,7 +105,7 @@ dlist_remove_first (dlist_t * l, void * e)
 
 	memcpy(e, l->right->element, *((int *)(l->element))) ;
 	dlist_remove(l, l->right) ;
-	return 0 ;
+	return 1;
 }
 
 int
