@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+//앞에서 삽입
 typedef 
 	struct _llist_node_t {
 		char * data ;
@@ -92,12 +92,12 @@ void print_llist (llist_t * l)
 
 	llist_node_t * i ;
 
-	i = l->last->next ;
+	i = l->last->next ; //제일 처음 넣은 노드를 가리킴
 	do {
-		printf("%s ", i->data) ;
+		printf("%s ", i->data) ; 
 
-		i = i->next ;
-	} while (i == l->last->next) ;
+		i = i->next ; 
+	} while (i != l->last->next) ;
 	printf("\n") ;
 
 }
@@ -105,6 +105,18 @@ void print_llist (llist_t * l)
 void free_llist (llist_t * l)
 {
 	/*TODO*/
+	if(l->last == NULL){
+        free(l);
+    }
+	llist_node_t * current = l->last->next; 
+    llist_node_t * next;
+    do
+    {   
+		next = current->next;
+        free(current);
+        current = next;
+    } while (current != l->last->next);
+	free(l) ;
 }
 
 /*****/

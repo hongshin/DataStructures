@@ -61,7 +61,7 @@ void test2 ()
 
 	dlist_append(l1, l2) ;
 
-	int n = dlist_len(l1) ;
+	int n = dlist_length(l1) ;
 	for (int i = 0 ; i < n ; i++) {
 		int data ;
 		dlist_get(l1, i, &data) ;

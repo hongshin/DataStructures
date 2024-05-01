@@ -12,8 +12,9 @@ typedef enum {
 	}
 	cell_state ;
 
-typedef struct { //mined, numbered(팔방으로 주변에 지뢰가 몇개인지)
+typedef struct { //mined, numbered(팔방으로 주변에 지뢰가 몇개인지), safe(0)
 		int mined ;
+		//int visited;
 		int num ;
 		cell_state state ; 
 	}
@@ -157,18 +158,31 @@ void setSafeZone(int row, int col){
 	while(is_empty(rowToSearch) == 0){
 		dequeue(rowToSearch, &cur_row);
 		dequeue(colToSearch, &cur_col);
+		//printf("denqueued: %d %d\n",cur_row, cur_col);
 		enqueue(rowToSet, &cur_row);
 		enqueue(colToSet, &cur_col);
+		//printf("enqueued: %d %d\n",cur_row, cur_col);
+		//board[cur_row][cur_col].visited = 1;
+
 
 		for(d = 0; d < 8; d++){
 			nxt_row = cur_row + add_row[d];
 			nxt_col = cur_col + add_col[d];
 
+			//printf("%d %d\n",nxt_row,nxt_col);
+
 			if(is_validMove(nxt_row,nxt_col) == 1){
 				enqueue(nearby_row, &nxt_row);
 				enqueue(nearby_col, &nxt_col);
 				
+		 		// if(board[nxt_row][nxt_col].visited != 1 && board[nxt_row][nxt_col].num == 0){
+		 		// 	enqueue(rowToSearch, &nxt_row);
+		 		// 	enqueue(colToSearch, &nxt_col);
+				// 	//printf("enqueued: %d %d %d\n",nxt_row,nxt_col,board[nxt_row][nxt_col].visited);
+		 		// }
+				
 				if(is_in_queue(rowToSet,colToSet,nxt_row,nxt_col) != 1 && board[nxt_row][nxt_col].num == 0){
+					//printf("not in queue\n");
 		 			enqueue(rowToSearch, &nxt_row);
 		 			enqueue(colToSearch, &nxt_col);
 		 		}
@@ -178,6 +192,13 @@ void setSafeZone(int row, int col){
 	}
 	
 	//safe부분에서 0부분 open처리
+	// for(int i = 0; i < M; i++){
+	// 	for(int j = 0; j < N; j++){
+	// 		if(board[i][j].visited == 1){
+	// 			board[i][j].state = open;
+	// 		}
+	// 	}
+	// }
 
 	for(int i = 0; i < get_size(rowToSet); i++){
 		int x;
@@ -214,10 +235,12 @@ void read_execute_userinput ()
 	printf("example: open 1 1\n\n");
 	printf("Input command row col > ") ;
 
-	char command[5] ;
+	char command[16] ;
 	int col, row ;
 
-	if(scanf("%4s %d %d", command, &row, &col) != 3){
+	//getchar();
+
+	if(scanf("%15s %d %d", command, &row, &col) != 3){
 		fprintf(stderr, "error: Invalid Input Value\n");  //이부분 안됨 2개 인풋 받았을때 처리 안됨
 		return;
 	}

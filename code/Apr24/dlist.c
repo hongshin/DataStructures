@@ -49,11 +49,12 @@ dlist_length (dlist_t * l)
 void 
 dlist_insert (node_t * left, void * e, int unit)
 {
+	//header랑 바로 앞에 node사이에 끼어넣는 로직임
 	node_t * _new = (node_t *) malloc(sizeof(node_t)) ;
 	_new->element = malloc(unit) ;
 	memcpy(_new->element, e, unit) ;
 
-	node_t * right = left->right ;
+	node_t * right = left->right ; //원래 헤더 바로 앞에 있던얘
 
 	_new->left = left ;
 	_new->right = right ;
@@ -63,15 +64,23 @@ dlist_insert (node_t * left, void * e, int unit)
 }
 
 void
-dlist_insert_first (dlist_t * l, void * e)
+dlist_insert_first (dlist_t * l, void * e) //맨앞에 새로운 노드 삽입
 {
 	dlist_insert(l, e, *((int *)(l->element))) ;
+	//l->element가 가리키는 메모리를 int로 해석하여 그 값을 가져오는 것입니다. 
 }
 
 void
 dlist_insert_last (dlist_t * l, void * e)
 {
-	dlist_insert(l->left, e, *((int *)(l->element))) ;
+	dlist_insert(l->left, e, *((int *)(l->element))) ; //제일 끝의 노드를 줌
+
+	// node_t * right = left->right ;  //llist를 가리킴 
+	// _new->left = left ;	//새로운노드의 왼쪽은 원래리스트의 맨끝을 가리킴
+	// _new->right = right ; //새노드의 오른쪽은 llist를 가리킴
+
+	// left->right = _new ; 
+	// right->left = _new ;
 }
 
 int
@@ -162,7 +171,7 @@ dlist_remove_at (dlist_t * l, int index)
 }
 
 int 
-dlist_append (dlist * l1, dlist * l2)
+dlist_append (dlist_t * l1, dlist_t * l2)
 /*
  * add all elements in ``l2`` to ``l1``, in their order in ``l2``.
  * return the number of added elements.
@@ -172,11 +181,12 @@ dlist_append (dlist * l1, dlist * l2)
 	node_t * i2 ;
 	for (i2 = l2->right ; i2 != l2 ; i2 = i2->right) {
 		
-		node_t * _new = malloc(sizeof(node_t)) ;
+		node_t * _new = malloc(sizeof(node_t)) ; //노드하나 만들고
 		_new->element = malloc(sizeof(*((int *)(l2->element)))) ;
-		memcpy(_new->element, i2->element, *((int *)l2->element)) ;
+		memcpy(_new->element, i2->element, *((int *)l2->element)) ; //거기에 i2 element 복사
 
-		_new->left = l1->left ;
+		//l1이랑 연결
+		_new->left = l1->left ; 
 		_new->right = l1 ;
 
 		l1->left->right = _new ;

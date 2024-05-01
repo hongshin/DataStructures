@@ -37,12 +37,6 @@ int insert_llist (llist_t * l, char * s)
 		return 1 ;
 	}
 
-	/*
-	n->next = l->first ;
-	l->first = n ;
-	l->size++ ;
-	*/
-
 	
 	llist_node_t * last = l->first ;
 	while (!(last->next == NULL)) {
@@ -70,7 +64,7 @@ char * delete_llist (llist_t * l, char * s)
 
 	char * r ;
 	r = i->data ;
-	if (i == l->first) {
+	if (i == l->first) { 
 		l->first = i->next ;
 	}
 	else {
