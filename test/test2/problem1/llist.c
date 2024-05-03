@@ -76,6 +76,15 @@ char * delete_llist (llist_t * l, char * s)
 void reverse_llist (llist_t * l)
 {
 	/*TODO*/
+	llist_node_t* curr;
+	curr = l->first;
+	while(curr->next != l->first){
+		llist_node_t* new = (llist_node_t*)malloc(sizeof(llist_node_t));
+		new->data = curr->data;
+		insert_llist(l, new->data);
+		curr = curr->next;
+	}
+	
 }
 
 

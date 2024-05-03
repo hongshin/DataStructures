@@ -78,6 +78,25 @@ int
 dlist_insert_at (dlist_t * l, int index, void * e)
 {
 	/* TODO */
+	if(index < 0){
+		return 0;
+	}
+	node_t* curr=l->right;
+	int i = 0;
+	for(i = 0; i < index; i++){
+		curr = curr->right;
+	}
+
+	node_t* new = (node_t*)malloc(sizeof(node_t));
+	new->element = malloc(sizeof(*(int*)l->element));
+	memcpy(new->element, e, *(int*)l->element);
+	new->left = curr->left->right;
+	new->right = curr;
+
+	curr->left->right = new;
+	curr->left = new;
+	
+	return 1;
 }
 
 int
@@ -120,6 +139,20 @@ int
 dlist_remove_at (dlist_t * l, int index, void * e)
 {
 	/* TODO */
+	if(index < 0){
+		return 0;
+	}
+	node_t* curr=l->right;
+	int i = 0;
+	for(i = 0; i < index; i++){
+		curr = curr->right;
+	}
+	memcpy(e, curr->element, (*(int*)l->element));
+	curr->left->right = curr->right;
+	curr->right->left = curr->left;
+	free(curr->element);
+	free(curr);
+	return 1;
 }
 
 

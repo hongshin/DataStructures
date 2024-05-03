@@ -15,6 +15,9 @@ void print_element (void * e)
 void double_element (void * e)
 {
 	/* TODO */
+	int * a;
+	a = (int *) e;
+	*a += *a;
 }
 
 
