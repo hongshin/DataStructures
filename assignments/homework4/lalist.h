@@ -33,9 +33,6 @@ int
 lalist_insert_at (lalist_t * l, int idx, void * e) ;
 
 int
-lalist_remove (lalist_t * l, lalist_node_t * n) ;
-
-int
 lalist_remove_first (lalist_t * l, void * e) ;
 
 int
