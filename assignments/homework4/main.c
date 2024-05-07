@@ -32,33 +32,26 @@ int main ()
 	lalist_insert_last(l, &data) ;
 
 	data = 2 ;
-	lalist_insert_last(l, &data) ;
+	lalist_insert_last(l, &data) ; 
 
 	data = 3 ;
-	lalist_insert_last(l, &data) ;
+	lalist_insert_last(l, &data) ; 
 
 	data = 4 ;
 	lalist_insert_first(l, &data) ; 
 
 	data = 5 ;
-	lalist_insert_first(l, &data) ;
-	lalist_insert_first(l, &data) ;
+	lalist_insert_last(l, &data) ;
 
 	data = 6 ;
-	lalist_insert_at (l, 2, &data) ;
+	lalist_insert_at (l, 2, &data) ; 
 
 	data = 7 ;
-	lalist_insert_at(l, 3, &data) ;
+	lalist_insert_at(l, 3, &data) ; 
 
 	data = 8 ;
-	lalist_insert_at(l, 4, &data) ;
+	lalist_insert_last(l, &data) ;
 
-	lalist_apply(l, print_element) ; 
-	printf("\n") ;
-	lalist_info(l) ;
-
-	lalist_remove_at(l, 0, &data);
-	printf("Removed Data: %d\n",data);
 	lalist_apply(l, print_element) ; 
 	printf("\n") ;
 	lalist_info(l) ;
@@ -67,11 +60,22 @@ int main ()
 	printf("Removed Data: %d\n",data);
 	lalist_remove_last(l, &data) ;
 	printf("Removed Data: %d\n",data);
+	lalist_remove_at(l, 2, &data) ;
+	printf("Removed Data: %d\n",data);
+
 	lalist_apply(l, print_element) ; 
 	printf("\n") ;
 	lalist_info(l) ;
 
+	data = 9 ;
+	lalist_insert_at(l, 1, &data) ; 
+
 	lalist_pack(l) ;
+	lalist_apply(l, print_element) ; 
+	printf("\n") ;
+	lalist_info(l) ;
+
+	lalist_apply(l, double_element) ; 
 	lalist_apply(l, print_element) ; 
 	printf("\n") ;
 	lalist_info(l) ;
