@@ -32,10 +32,10 @@ int main ()
 	lalist_insert_last(l, &data) ;
 
 	data = 2 ;
-	lalist_insert_last(l, &data) ;
+	lalist_insert_last(l, &data) ; 
 
 	data = 3 ;
-	lalist_insert_last(l, &data) ;
+	lalist_insert_last(l, &data) ; 
 
 	data = 4 ;
 	lalist_insert_first(l, &data) ; 
@@ -45,10 +45,10 @@ int main ()
 	lalist_insert_first(l, &data) ;
 
 	data = 6 ;
-	lalist_insert_at (l, 2, &data) ;
+	lalist_insert_at (l, 2, &data) ; 
 
 	data = 7 ;
-	lalist_insert_at(l, 3, &data) ;
+	lalist_insert_at(l, 3, &data) ; 
 
 	data = 8 ;
 	lalist_insert_at(l, 4, &data) ;
@@ -70,6 +70,9 @@ int main ()
 	lalist_apply(l, print_element) ; 
 	printf("\n") ;
 	lalist_info(l) ;
+
+	data = 9 ;
+	lalist_insert_at(l, 1, &data) ; 
 
 	lalist_pack(l) ;
 	lalist_apply(l, print_element) ; 
