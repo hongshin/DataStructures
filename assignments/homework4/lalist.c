@@ -9,13 +9,10 @@ lalist_alloc (int arr_cap, int elem_size)
 	lalist_t * l = malloc(sizeof(lalist_t)) ;
 	l->arr_cap = arr_cap ;
 	l->elem_size = elem_size ;
-	l->first = NULL ;
-	/*
 	l->first = malloc(sizeof(lalist_node_t)) ;
 	l->first->arr = calloc(elem_size, arr_cap) ;
 	l->first->n_elem = 0 ;
 	l->first->next = NULL ;
-	*/
 
 	return l ;
 }
