@@ -11,6 +11,7 @@
 
 
 ### Class materials ###
+* May 8 Wed: Tree [\[code\]](code/May08)
 * May 3 Fri: Tree [\[slide\]](notes/ch5-tree.pdf)
 * May 1 Wed: Test 2 [\[pdf\]](test/test1.pdf) [\[code\]](test/test2)
 * Apr 26 Fri: Linked List [\[slide\]](notes/ch4-llist.pdf) [\[code\]](code/Apr26)
