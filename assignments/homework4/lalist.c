@@ -58,12 +58,15 @@ lalist_insert_first (lalist_t * l, void * e)
 		return;
 	}
 	else if(l->first->n_elem > 0 && l->first->n_elem < l->arr_cap){
-		int i = 0;
-		while(*(int*)(l->first->arr+(i*l->elem_size)) != 0){
-			i++;
+		memcpy(new->arr, e, l->elem_size);
+		new->n_elem++;
+		int i;
+		for(i = 0; i < l->first->n_elem; i++){
+			memcpy(new->arr+(i+1)*(l->elem_size), l->first->arr+(i*l->elem_size),l->elem_size);
+			new->n_elem++;
 		}
-		memcpy(l->first->arr+(i*l->elem_size), e, l->elem_size);
-		l->first->n_elem++;
+		new->next = l->first->next;
+		l->first = new;
 		return;
 	}
 	else{

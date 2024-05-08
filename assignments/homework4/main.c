@@ -39,9 +39,13 @@ int main ()
 
 	data = 4 ;
 	lalist_insert_first(l, &data) ; 
-
 	data = 5 ;
-	lalist_insert_last(l, &data) ;
+	lalist_insert_first(l, &data) ; 
+	data = 6 ;
+	lalist_insert_first(l, &data) ; 
+
+	// data = 5 ;
+	// lalist_insert_last(l, &data) ;
 
 	data = 6 ;
 	lalist_insert_at (l, 2, &data) ; 
