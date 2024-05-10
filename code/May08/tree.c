@@ -16,13 +16,61 @@ tree_create (char data)
 tree_t *
 tree_add_child (tree_t * parent, tree_t * child)
 {
-	/*TODO*/
+	if (parent->down == NULL) {
+		parent->down =child ;
+		return parent ;
+	}
+
+	tree_t * last ;
+	
+	for (last = parent->down ; 
+		 last->next != NULL ;
+		 last = last->next) ;
+	// assert last->next == NULL 
+	last->next = child ;
+
+	return parent ;
 }
 
 tree_t *
-tree_search (node_t * t, char key)
+tree_search (tree_t * t, char key)
 {
-	/*TODO*/
+	if (t->data == key) {
+		return t ;
+	}
+
+	tree_t * i ;
+	for (i = t->down ; i != NULL ; i = i->next) {
+		tree_t * r ;
+		r = tree_search(i, key) ;
+		if (r)
+			return r ;
+	}
+	return NULL ;
+}
+
+
+void
+tree_delete (tree_t * t)
+{
+	tree_t * i ;
+	for (i = t->down ; i != NULL ; ) {
+		tree_t * next ;
+		next = i->next ;
+		free(i) ;
+		i = next ;
+	}
+	free(t) ;
+}
+
+void
+tree_delete (tree_t * t)
+{
+	if (t->down)
+		tree_delete(t->down)  ;
+	if (t->next)
+		tree_delete(t->next) ;
+	free(t) ;
 }
 
 
@@ -48,8 +96,3 @@ tree_print (tree_t * t)
 	}
 }
 
-void
-tree_delete (tree_t * t)
-{
-	/*TODO*/
-}
