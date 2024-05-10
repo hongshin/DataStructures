@@ -17,12 +17,37 @@ tree_t *
 tree_add_child (tree_t * parent, tree_t * child)
 {
 	/*TODO*/
+	if(parent->down == NULL){
+		parent->down = child;
+		return parent;
+	}
+	else{
+		tree_t* curr;
+		for(curr = parent->down; curr->next != NULL; curr= curr->next);
+		curr->next = child;
+		return parent;
+	}
+	
 }
 
 tree_t *
-tree_search (node_t * t, char key)
+tree_search (tree_t * t, char key)
 {
 	/*TODO*/
+	if(t->data == key){
+		return t;
+	}
+	else{
+		tree_t* i;
+		for(i = t->down; i != NULL; i=i->next){
+			tree_t* r;
+			r = tree_search(i,key);
+			if(r){
+				return r;
+			}
+		}
+	}
+	return NULL; 
 }
 
 
@@ -52,4 +77,12 @@ void
 tree_delete (tree_t * t)
 {
 	/*TODO*/
+	tree_t* i;
+	for(i = t->down; i != NULL; i=i->next){
+		tree_t* next;
+		next = i->next;
+		free(i);
+		i = next;
+	}
+	free(t);
 }
