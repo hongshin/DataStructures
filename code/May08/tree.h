@@ -7,6 +7,7 @@ typedef
 	node_t ;
 
 typedef struct _node_t tree_t ;
+//typedef node_t tree_t ;
 
 tree_t * 
 tree_create (char data) ;
