@@ -16,70 +16,46 @@ tree_create (char data)
 tree_t *
 tree_add_child (tree_t * parent, tree_t * child)
 {
-	if (parent->down == NULL) {
-		parent->down =child ;
-		return parent ;
-	}
-
-	tree_t * last ;
+	/*TODO*/
 	
-	for (last = parent->down ; 
-		 last->next != NULL ;
-		 last = last->next) ;
-	// assert last->next == NULL 
-	last->next = child ;
-
-	return parent ;
 }
 
 tree_t *
-tree_search (tree_t * t, char key)
+tree_search (node_t * t, char key)
 {
-	if (t->data == key) {
-		return t ;
-	}
-
-	tree_t * i ;
-	for (i = t->down ; i != NULL ; i = i->next) {
-		tree_t * r ;
-		r = tree_search(i, key) ;
-		if (r)
-			return r ;
-	}
-	return NULL ;
-}
-
-
-void
-tree_delete (tree_t * t)
-{
-	tree_t * i ;
-	for (i = t->down ; i != NULL ; ) {
-		tree_t * next ;
-		next = i->next ;
-		free(i) ;
-		i = next ;
-	}
-	free(t) ;
-}
-
-void
-tree_delete (tree_t * t)
-{
-	if (t->down)
-		tree_delete(t->down)  ;
-	if (t->next)
-		tree_delete(t->next) ;
-	free(t) ;
-}
-
+	/*TODO*/
+	
 
 int
 tree_height(tree_t * t) 
 {
 	/*TODO*/
+	tree_t * st;
+	int max = 0;
+	for(st->down;st!=null;st=st->next);
+	int h;
+	h = tree_height(st);
+	if (max<h)
+		max = h ;
 }
+return max + 1 ;
 
+int tree_degree (tree_t * t)
+{	
+	int d = 0;
+	tree_t * s;
+	for(s->down;s!=null;s=s->next);{
+	d++;
+	}
+	for(s->down;s!=null;s=s->next);{
+	int s_d;
+	}
+	s_d = tree_degree(s);
+	if (d<s_d) {
+		d = s_d ;
+	}
+}
+return d ;
 
 void
 tree_print (tree_t * t)
@@ -96,3 +72,9 @@ tree_print (tree_t * t)
 	}
 }
 
+void
+tree_delete (tree_t * t)
+{
+	/*TODO*/
+	
+}
