@@ -38,6 +38,7 @@ int main ()
 	printf("\n") ;
 
 	printf("height: %d\n", tree_height(t[0])) ;
+	printf("degree: %d\n", tree_degree(t[0])) ;
 	tree_delete(t[0]) ;
 
 	return 0 ;

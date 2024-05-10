@@ -29,6 +29,7 @@ int main ()
 	printf("\n") ;
 
 	printf("height: %d\n", bintree_height(t[0])) ;
+
 	bintree_delete(t[0]) ;
 
 	return 0 ;
