@@ -141,7 +141,6 @@ lalist_insert_at (lalist_t * l, int index, void * e)
 		prev=curr;
 		node++;
 	}
-	//printf("node: %d,index: %d,iin: %d\n", node,  num,index_in_node);
 
 	lalist_node_t* new = (lalist_node_t*)malloc(sizeof(lalist_node_t));
 	new->arr = calloc(l->arr_cap,l->elem_size);
