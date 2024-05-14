@@ -62,7 +62,7 @@ tree_delete (tree_t * t)
 	}
 	free(t) ;
 }
-
+/*
 void
 tree_delete (tree_t * t)
 {
@@ -72,12 +72,39 @@ tree_delete (tree_t * t)
 		tree_delete(t->next) ;
 	free(t) ;
 }
-
+*/
 
 int
 tree_height(tree_t * t) 
 {
-	/*TODO*/
+	tree_t * s ;
+	int max = 0 ;
+	for (s = t->down ; s != NULL ; s=s->next) {
+		int h ;
+		h = tree_height(s) ;
+		if (max < h)
+			max = h ;
+	}
+	return max + 1 ;
+}
+
+int
+tree_degree (tree_t * t)
+{
+	int d = 0 ;
+	tree_t * s ;
+	for (s=t->down ; s != NULL ; s=s->next) {
+		d++ ;
+	}
+
+	for (s=t->down ; s != NULL ; s=s->next) {
+		int s_d ;
+		s_d = tree_degree(s) ;
+		if (d < s_d) {
+			d = s_d ;
+		}
+	}
+	return d  ;
 }
 
 
