@@ -16,7 +16,10 @@ tree_t *
 tree_add_child (tree_t * parent, tree_t * child) ;
 
 int
-tree_height(tree_t * t) ;
+tree_height (tree_t * t) ;
+
+int
+tree_degree (tree_t * t) ;
 
 int
 tree_degree(tree_t * t) ;
