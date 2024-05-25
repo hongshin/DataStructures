@@ -56,9 +56,9 @@ void
 swap (heap_t * h, int a, int b)
 {
 	char * tmp = (char *) malloc(h->usize) ;
-	memcpy(tmp, h->arr + a * h->usize, h->usize) ;
-	memcpy(h->arr + a * h->usize, h->arr + b * h->usize, h->usize) ;
-	memcpy(h->arr + b * h->usize, tmp, h->usize) ;
+	memcpy(tmp, arr(h, a), h->usize) ;
+	memcpy(arr(h, a), arr(h, b), h->usize) ;
+	memcpy(arr(h, b), tmp, h->usize) ;
 	free(tmp) ;
 }
 
@@ -83,27 +83,46 @@ heap_pop (heap_t * h, void * buf)
 	if (h->size == 0)
 		return 0 ;
 
-	/*TODO*/
+	memcpy(buf, arr(h, 1), h->usize) ;
 
+	swap(h, 1, h->size) ;
+	h->size-- ;
+
+	int i = 1 ;
+	while ((left(i) <= h->size && cmp(h, i, left(i)) > 0) || 
+		right(i) <= h->size && cmp(h, i, right(i)) > 0) {
+
+		int r = left(i) ;
+		if (right(i) <= h->size && cmp(h, left(i), right(i)) < 0) {
+			r = right(i) ;
+		}
+
+		swap(h, i, r) ;
+
+		i = r ;
+	}
 	return 1 ;
 }
 
 int
 heap_push (heap_t * h, void * buf) 
 {
-	if (h->size == h->capacity) 
+	if (h->size == h->capacity) { 
 		return 0 ;
+	}
 
 	h->size += 1 ;
 	memcpy(arr(h, h->size), buf, h->usize) ;
-	for (int i = h->size ; parent(i) > 0 ; ) {
+
+	int i ;
+	for (i = h->size ; i > 1 ; i = parent(i)) {
 		if (cmp(h, parent(i), i) < 0) {
-			swap(h, parent(i), i) ;
-			i = parent(i) ;
-		}
-		else {
 			break ;
 		}
+		else {
+			swap(h, parent(i), i) ;
+		}
 	}
+
 	return 1 ;
 }

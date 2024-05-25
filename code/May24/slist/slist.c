@@ -49,7 +49,16 @@ slist_pop (slist_t * h, void * buf)
 	if (h->size == 0)
 		return 0 ;
 
-	/* TODO */
+
+	memcpy(buf, h->arr, h->usize) ;
+
+	int i = 0 ;
+	for (i = 0 ; i < h->size - 1 ; i++) {
+		memcpy(	h->arr + i * h->usize, 
+			h->arr + (i + 1) * h->usize,
+			h->usize) ;
+	}
+	h->size = h->size - 1 ;
 
 	return 1 ;
 }
@@ -59,7 +68,6 @@ slist_push (slist_t * h, void * buf)
 {
 	if (h->size == h->capacity) 
 		return 0 ;
-
 	
 	int p = 0 ;
 	for (p = 0 ; p < h->size ; p++) {
@@ -67,7 +75,17 @@ slist_push (slist_t * h, void * buf)
 			break ;
 		}
 	}
+	/* shift each i-th element to (i+1)-th index from p */
 
-	/* TODO */
+	int i ;
+	for (i = h->size ; i > p ; i--) {
+		memcpy(	h->arr + i * h->usize, 
+			h->arr + (i - 1) * h->usize,
+			h->usize) ;
+	}
+
+	memcpy(h->arr + p * h->usize, buf, h->usize) ;
+	h->size++ ;
+
 	return 1 ;
 }
