@@ -25,3 +25,6 @@ heap_pop (heap_t * heap, void * buf) ;
 
 int
 heap_push (heap_t * heap, void * buf) ;
+
+int
+heap_remove (heap_t * heap, void * buf) ;
