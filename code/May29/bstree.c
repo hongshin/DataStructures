@@ -87,8 +87,59 @@ bst_remove (bst_t * t, void * data)
 	if (n == NULL || t->cmp(n->data, data) != 0) 
 		return 0 ;
 
+	if (n->left == NULL) {
+		if (n->parent == NULL) {
+			t->root = n->right ;
+			if (n->right != NULL)
+				n->right->parent = NULL ;
+		}
+		else if (n->parent->left == n) {
+			if (n->right != NULL)
+				n->right->parent = n->parent ;
+			n->parent->left = n->right ;
+		}
+		else /* n->parent->right == n */ {
+			if (n->right != NULL)
+				n->right->parent = n->parent ;
+			n->parent->right = n->right ;
+		}
+		free(n->data) ;
+		free(n) ;
+		return 1 ;
+	}
 
-	/*TODO*/
+	/* assume(n->left != NULL) */
+
+	bst_node_t * lmax = n->left ;
+	while (lmax->right != NULL) {
+		lmax = lmax->right ;
+	}
+	// lmax->right == NULL 
+	lmax->parent->right = lmax->left ;
+	if (lmax->left != NULL)
+		lmax->left->parent = lmax->parent ;
+	lmax->left = NULL ;
+
+	lmax->parent = n->parent ;
+	if (n->parent == NULL) {
+		t->root = lmax ;
+	}
+	else if (n->parent->left == n) {
+		n->parent->left = lmax ;
+	}
+	else /* (n->parent->right == n) */ {
+		n->parent->right = lmax ;
+	}
+
+	lmax->left = n->left ;
+	if (n->left != NULL)
+		n->left->parent = lmax ;
+	lmax->right = n->right ;
+	if (n->right != NULL)
+		n->right->parent = lmax ;
+
+	free(n->data) ;
+	free(n) ;
 
 	return 1 ;
 }

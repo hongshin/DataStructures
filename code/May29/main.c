@@ -42,19 +42,19 @@ main ()
 	entry query ;
 	query.key = 9 ;
 
-	if (bst_search(t, &query) == 0) {
+	if (bst_search(t, &query)) {
 		printf("%s\n", query.data) ;
 	}
 	else {
 		printf("no such element exists.\n") ;
 	}
 
-	/*
-	for (i = 0 ; i < 10 ; i++) {
+	
+	for (i = 0 ; i < 11 ; i++) {
 		bst_remove(t, &i) ;
 		bst_print(t, _print) ;
 	}
-	*/
+	
 	bst_free(t) ;
 
 	return EXIT_SUCCESS ;
