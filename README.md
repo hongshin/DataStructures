@@ -11,8 +11,11 @@
 
 
 ### Class materials ###
-* May 22 Wed: Heap [\[code\]](code/May22)
-* May 17 Fri: Time Complexity 
+* May 31 Fri: Sorting [\[slide\]] [\[code\]](code/May31)
+* May 29 Wed: Binary Search Tree [\[slide\]](notes/ch5-bstree.pdf) [\[code\]](code/May29)
+* May 24 Fri: Heap and Sorted List (Priority Queue) [\[code\]](code/May24)
+* May 22 Wed: Heap [\[slide\]](notes/ch5-heap.pdf) [\[code\]](code/May22) 
+* May 17 Fri: Time Complexity [\[slide\]](notes/ch1-algorithm.pdf)
 * May 10 Fri: Binary Tree
 * May 8 Wed: Tree [\[code\]](code/May08)
 * May 3 Fri: Tree [\[slide\]](notes/ch5-tree.pdf)
@@ -32,8 +35,8 @@
 * Mar 13 Wed: Array and Structure (Ch. 2) [\[code\]](code/Mar13)
 * Mar 8 Fri: Array and Structure (Ch. 2) [\[slide\]](notes/ch2.pdf) [\[code\]](code/Mar8)
 
-
 ### Assignments ###
+* Homework 5 (due: 7 PM, 4 June Tue): [\[desc\]](assignments/homework5/homework5.pdf) [\[code\]](assignments/homework5)
 * Homework 4 (due: 7 PM, 14 May Tue): [\[desc\]](assignments/homework4/homework4.pdf) [\[code\]](assignments/homework4)
 * Homework 3 (due: 7 PM, Apr 30 Tue): [\[desc\]](assignments/homework3/homework3.pdf) [\[code\]](assignments/homework3)
 * Homework 2 (due: 7 PM, Apr 9 Tue): [\[desc\]](assignments/homework2/homework2.pdf) [\[code\]](assignments/homework2)
