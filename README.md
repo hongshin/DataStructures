@@ -11,8 +11,8 @@
 
 
 ### Class materials ###
-* Jun 6 Fri: Test 3 & Sorting [\[code\]](code/Jun6)
-* Jun 4 Wed: Sorting [\[code\]](code/Jun4)
+* Jun 6 Fri: Test 3 & Sorting [\[slide\]](notes/ch7-sorting.pdf) [\[code\]](code/Jun6)
+* Jun 4 Wed: Sorting  [\[slide\]](notes/ch7-sorting.pdf) [\[code\]](code/Jun4)
 * May 31 Fri: Sorting [\[slide\]] [\[code\]](code/May31)
 * May 29 Wed: Binary Search Tree [\[slide\]](notes/ch5-bstree.pdf) [\[code\]](code/May29)
 * May 24 Fri: Heap and Sorted List (Priority Queue) [\[code\]](code/May24)
