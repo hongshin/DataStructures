@@ -10,8 +10,9 @@
 	- Jeewoong Kim :e-mail: jeewoong@chungbuk.ac.kr
 
 
-
 ### Class materials ###
+* Jun 6 Fri: Test 3 & Sorting [\[code\]](code/Jun6)
+* Jun 4 Wed: Sorting [\[code\]](code/Jun4)
 * May 31 Fri: Sorting [\[slide\]] [\[code\]](code/May31)
 * May 29 Wed: Binary Search Tree [\[slide\]](notes/ch5-bstree.pdf) [\[code\]](code/May29)
 * May 24 Fri: Heap and Sorted List (Priority Queue) [\[code\]](code/May24)
@@ -42,4 +43,3 @@
 * Homework 3 (due: 7 PM, Apr 30 Tue): [\[desc\]](assignments/homework3/homework3.pdf) [\[code\]](assignments/homework3)
 * Homework 2 (due: 7 PM, Apr 9 Tue): [\[desc\]](assignments/homework2/homework2.pdf) [\[code\]](assignments/homework2)
 * Homework 1 (due: 7 PM, Mar 29 Fri): [\[desc\]](assignments/homework1/homework1.pdf) [\[code\]](assignments/homework1/poly.c)
-
