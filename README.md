@@ -38,6 +38,7 @@
 * Mar 8 Fri: Array and Structure (Ch. 2) [\[slide\]](notes/ch2.pdf) [\[code\]](code/Mar8)
 
 ### Assignments ###
+* Homework 6 (due: 7 PM, 24 June Mon): [\[desc\]](assignments/homework6/homework6.pdf) [\[code\]](assignments/homework6)
 * Homework 5 (due: 7 PM, 4 June Tue): [\[desc\]](assignments/homework5/homework5.pdf) [\[code\]](assignments/homework5)
 * Homework 4 (due: 7 PM, 14 May Tue): [\[desc\]](assignments/homework4/homework4.pdf) [\[code\]](assignments/homework4)
 * Homework 3 (due: 7 PM, Apr 30 Tue): [\[desc\]](assignments/homework3/homework3.pdf) [\[code\]](assignments/homework3)
