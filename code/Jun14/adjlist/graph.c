@@ -29,7 +29,8 @@ void
 graph_delete (graph_t * g) 
 {
 	for (int i = 0 ; i < g->max_vertices ; i++) {
-		free(g->adj[i]) ;
+		if (g->adj[i]) 
+			free(g->adj[i]) ;
 	}
 	free(g->adj) ;
 	free(g->n_adj) ;
@@ -64,13 +65,49 @@ graph_insert_edge (graph_t * g, int u, int v)
 	g->adj[u] = realloc(g->adj[u], g->n_adj[u] * sizeof(int)) ;
 	g->adj[v] = realloc(g->adj[v], g->n_adj[v] * sizeof(int)) ;
 
-	g->adj[u][g->n_adj[u]] = v ;
-	g->adj[v][g->n_adj[v]] = u ;
-
-
+	g->adj[u][g->n_adj[u] - 1] = v ;
+	g->adj[v][g->n_adj[v] - 1] = u ;
 
 	return 1 ;
 }
+
+int	
+graph_remove_edge (graph_t * g, int u, int v)
+{
+	if (g->v[u] == 0 || g->v[u] == 0) 
+		return 0 ;
+
+	int i, j ;
+	for (i = 0 ; i < g->n_adj[u] ; i++) {
+		if (g->adj[u][i] == v)
+			break ;
+	}
+	if (i == g->n_adj[i]) {
+		return 0 ;
+	}
+
+	g->n_adj[u]-- ;
+	for (j = i ; j < g->n_adj[u] ; j++) {
+		g->adj[u][i] = g->adj[u][i + 1] ;
+	}
+
+	g->n_adj[v]-- ;
+	for (i = 0 ; i < g->n_adj[v] ; i++) {
+		if (g->adj[u][i] == u)
+			break ;
+	}
+
+	for (j = i ; j < g->n_adj[v] ; j++) {
+		g->adj[v][i] = g->adj[v][i + 1] ;
+	}
+
+	g->adj[u] = realloc(g->adj[u], g->n_adj[u] * sizeof(int)) ;
+	g->adj[v] = realloc(g->adj[v], g->n_adj[v] * sizeof(int)) ;
+
+	return 1 ;
+}
+
+
 
 void 
 graph_print (graph_t * g) 
