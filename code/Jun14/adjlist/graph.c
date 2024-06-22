@@ -14,10 +14,13 @@ graph_create (int n)
 	memset(g->v, 0, n * sizeof(int)) ;
 
 	g->n_adj = (int *) calloc(n, sizeof(int)) ;
+	memset(g->v, 0, n * sizeof(int)) ;
+
 	g->adj = (int **) calloc(n, sizeof(int *)) ;
 	for (int i = 0 ; i < n ; i++) {
-		g->adj[i] = (int *) calloc(n, sizeof(int)) ;
-		memset(g->adj[i], 0, n * sizeof(int)) ;
+		g->adj[i] = NULL ;
+		//g->adj[i] = (int *) calloc(n, sizeof(int)) ;
+		//memset(g->adj[i], 0, n * sizeof(int)) ;
 	}
 	return g ;
 }
@@ -55,11 +58,16 @@ graph_insert_edge (graph_t * g, int u, int v)
 			return 0 ;
 	}
 
+	g->n_adj[u]++ ;
+	g->n_adj[v]++ ;
+
+	g->adj[u] = realloc(g->adj[u], g->n_adj[u] * sizeof(int)) ;
+	g->adj[v] = realloc(g->adj[v], g->n_adj[v] * sizeof(int)) ;
+
 	g->adj[u][g->n_adj[u]] = v ;
 	g->adj[v][g->n_adj[v]] = u ;
 
-	g->n_adj[u]++ ;
-	g->n_adj[v]++ ;
+
 
 	return 1 ;
 }
